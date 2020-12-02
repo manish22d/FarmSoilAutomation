@@ -22,7 +22,13 @@ This is Java based Rest Assured project. It follows  BDD framework
  * Open Eclipse
  	* File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip file
 	* Select the right project
- * Right Click on testng.xml and Run as TestNG Suite
+ * Once Project is imported follow below steps
+ 	* Right Click on Project -> Run as -> run config
+ 	* Select Maven build -> Click on new (top right corner on same window)
+ 	* Select Base Directory
+ 	* give goal as test
+ 	* In Environment tab, click on Add. Give name "URL" and value as your host url (like https://api.openweathermap.org) 
+ 	* Click on Save and run
 
 ### Running in Jenkins Pipeline
  * We Need create bat file and to run using testng.xml 

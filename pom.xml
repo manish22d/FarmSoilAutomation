@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com</groupId>
-	<artifactId>RestAssuredWithBDD</artifactId>
+	<artifactId>FarmSoilAutomation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>BDD Framework</name>
 
@@ -136,6 +136,12 @@
 			<artifactId>extentreports</artifactId>
 			<version>3.1.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.typesafe</groupId>
+			<artifactId>config</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

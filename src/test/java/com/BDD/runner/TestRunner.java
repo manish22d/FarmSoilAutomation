@@ -16,7 +16,7 @@ import cucumber.api.junit.Cucumber;
 		"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:src/test/resources/reports//report.html",
 		"html:output/html-report" }, monochrome = true)
 
-public class TestRunner extends TestBase{
+public class TestRunner extends TestBase {
 	@AfterClass
 	public static void writeExtentReport() {
 		Reporter.loadXMLConfig(new File("src//main//resources//extent-config.xml"));

@@ -5,14 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 import com.BDD.httpMethods.BaseClass;
 import com.BDD.httpMethods.HttpOperations;
 
-public class TestBase extends HttpOperations{
+public class TestBase extends HttpOperations {
 	BaseClass baseClass = new BaseClass();
 
 	public TestBase() {
-		
 		try {
 			property = new Properties();
 			FileInputStream inputStream = new FileInputStream(
