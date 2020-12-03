@@ -6,14 +6,18 @@ import static org.hamcrest.Matchers.is;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.entity.mime.Header;
+
 import com.BDD.testBase.TestBase;
 import com.BDD.util.ConfigProvider;
+import com.BDD.util.GenerateToken;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.http.Headers;
 
 public class TerminalDetailsSteps {
 	public static TestBase testBase;
@@ -22,6 +26,9 @@ public class TerminalDetailsSteps {
 	public void i_want_to_retrieve_terminal_details() {
 		testBase = new TestBase();
 		testBase.setAPIEndpoint("/xyz/{terminalid}");
+		testBase.setHeader("Accept", "application/json");
+		testBase.setHeader("Content-Type", "application/json");
+		//testBase.setHeader("Authorization", GenerateToken.getAuthToken());
 	}
 
 	@Given("^I want to request data with terminal id$")
