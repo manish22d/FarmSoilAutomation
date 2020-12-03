@@ -28,7 +28,7 @@ public class TerminalDetailsSteps {
 		testBase.setAPIEndpoint("/xyz/{terminalid}");
 		testBase.setHeader("Accept", "application/json");
 		testBase.setHeader("Content-Type", "application/json");
-		//testBase.setHeader("Authorization", GenerateToken.getAuthToken());
+		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
 	}
 
 	@Given("^I want to request data with terminal id$")
