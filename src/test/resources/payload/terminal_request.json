@@ -1,0 +1,78 @@
+{
+	"terminalid": "1234ABCD",
+	"states": [
+		{
+			"uri":"xyzzy",
+			"properties": [
+				{
+					"key": "Instance",
+					"value": "CURRENCYDISPENSER1"
+				},
+				{
+					"key": "TimeStamp",
+					"value": "11/26/2020 2:42:15 AM"
+				},
+				{
+					"key": "Device",
+					"value": "0"
+				},
+				{
+					"key": "Instance",
+					"value": "CURRENCYDISPENSER1"
+				},
+				{
+					"key": "PowerSaveRecoveryTime",
+					"value": "0"
+				},
+				{
+					"key": "DevicePosition",
+					"value": "0"
+				},
+				{
+					"key": "GuidanceLights",
+					"value": "System.Int32[]"
+				},
+				{
+					"key": "PositionStatus",
+					"value": "System.Int32[]"
+				},
+				{
+					"key": "Transport",
+					"value": "System.Int32[]"
+				},
+				{
+					"key": "TransportStatus",
+					"value": "System.Int32[]"
+				},
+				{
+					"key": "Shutter",
+					"value": "System.Int32[]"
+				},
+				{
+					"key": "Position",
+					"value": "System.Int32[]"
+				},
+				{
+					"key": "IntermediateStacker",
+					"value": "0"
+				},
+				{
+					"key": "Dispenser",
+					"value": "0"
+				},
+				{
+					"key": "SafeDoor",
+					"value": "1"
+				},
+				{
+					"key": "ExchangeType",
+					"value": "1"
+				},
+				{
+					"key": "Type",
+					"value": "1"
+				}
+			]
+		}
+	]
+}

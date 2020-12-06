@@ -1,11 +1,7 @@
 package com.BDD.testBase;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
-
-import org.apache.log4j.Logger;
 
 import com.BDD.httpMethods.BaseClass;
 import com.BDD.httpMethods.HttpOperations;
@@ -16,12 +12,9 @@ public class TestBase extends HttpOperations {
 	public TestBase() {
 		try {
 			property = new Properties();
-			FileInputStream inputStream = new FileInputStream(
-					System.getProperty("user.dir") + "/src/main/resources/Configuration.properties");
-			property.load(inputStream);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+			InputStream is = this.getClass().getClassLoader().getResourceAsStream("Configuration.properties");
+			property.load(is);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

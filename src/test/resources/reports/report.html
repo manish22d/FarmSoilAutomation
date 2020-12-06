@@ -39,7 +39,6 @@
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
 						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
-			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1)" view='testrunner-logs-view'><i class='material-icons'>note</i></a></li>
 		</ul>
@@ -54,7 +53,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Dec 3, 2020 02:03:26 AM</span>
+                    <span class='label suite-start-time blue darken-3'>Dec 6, 2020 09:40:09 PM</span>
 				</a>
 			</li>
 			<li>
@@ -80,8 +79,6 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
-						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
-						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -94,7 +91,7 @@
 					<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@Test</a></li>
+					<li><a href='#'>@manish</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -142,10 +139,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -157,10 +154,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>1</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='66.667%'>2</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -172,10 +169,10 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='76.923%'><span class='strong'>10</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='15.385%'>2</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='7.692%'>1</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -189,23 +186,23 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Get Terminal Details Functional Test</span>
-						<span class='test-time'>Dec 3, 2020 02:03:26 AM</span>
-						<span class='test-status right fail'>fail</span>
+						<span class='test-name'>Post Terminal Details Functional Test</span>
+						<span class='test-time'>Dec 6, 2020 09:40:09 PM</span>
+						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
-<div class='scenariooutline node' test-id='2' status='fail'>
-	<span class='duration right label'>0h 0m 2s+580ms</span>
+<div class='scenariooutline node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 2s+833ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
 		<span class="desc-text">User want to retrieved terminal related details</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='3' class='node scenario fail' status='fail'>
+		<li test-id='3' class='node scenario pass' status='pass'>
 			<div class='category-list'>
-				<span class='category label white-text'>@Test</span>
+				<span class='category label white-text'>@manish</span>
 			</div>
 			
 			<b>Scenario</b>
@@ -214,115 +211,16 @@
 			
 				<ul class='steps'>
 					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
-						<span class="bdd-step-name">Given I want to retrieve terminal details</span>
+						<span class="bdd-step-name">Given I want to update terminal details</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='5' class='node and pass' status='pass'><b>And</b>
-						<span class="bdd-step-name">And I want to request data with terminal id</span>
+						<span class="bdd-step-name">And I want to updated request with terminal id</span>
 							<div class='pre'><table><tr><td>ATM 1</td></tr></table></div>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='6' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When i request get resource</span>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='7' class='node then fail' status='fail'><b>Then</b>
-						<span class="bdd-step-name">Then Verify user received 200 ok response</span>
-							<div class='pre'><textarea>java.lang.AssertionError: 
-Expected: is <200>
-     but: was <404>
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
-	at com.BDD.testSteps.HttpCodeSteps.verify_user_received_ok_response(HttpCodeSteps.java:15)
-	at ?.Then Verify user received 200 ok response(getTerminalDetails.feature:10)
-</textarea></div>
-					</li>
-					<li test-id='8' class='node and skip' status='skip'><b>And</b>
-						<span class="bdd-step-name">And verify all coressponding device id displayed in response</span>
-							<div class='pre'><table><tr><td>ATM 1</td></tr></table></div>
-							<div class='pre'>skipped</div>
-					</li>
-				</ul>
-		</li>
-	</ul>
-</div>
-<div class='scenariooutline node' test-id='9' status='fail'>
-	<span class='duration right label'>0h 0m 0s+704ms</span>
-	<div class='desc'>
-		<b>ScenarioOutline</b>
-		<span class="desc-text">User want to retrieved terminal related details</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='10' class='node scenario fail' status='fail'>
-			<div class='category-list'>
-				<span class='category label white-text'>@Test</span>
-			</div>
-			
-			<b>Scenario</b>
-			
-			<span class="bdd-step-name">User want to retrieved terminal related details</span>
-			
-				<ul class='steps'>
-					<li test-id='11' class='node given pass' status='pass'><b>Given</b>
-						<span class="bdd-step-name">Given I want to retrieve terminal details</span>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='12' class='node and pass' status='pass'><b>And</b>
-						<span class="bdd-step-name">And I want to request data with terminal id</span>
-							<div class='pre'><table><tr><td>ATM 1</td></tr></table></div>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='13' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When i request get resource</span>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='14' class='node then fail' status='fail'><b>Then</b>
-						<span class="bdd-step-name">Then Verify user received 204 No Content response</span>
-							<div class='pre'><textarea>java.lang.AssertionError: 
-Expected: is <204>
-     but: was <404>
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
-	at com.BDD.testSteps.HttpCodeSteps.verify_user_received_No_Content_response(HttpCodeSteps.java:20)
-	at ?.Then Verify user received 204 No Content response(getTerminalDetails.feature:24)
-</textarea></div>
-					</li>
-				</ul>
-		</li>
-	</ul>
-</div>
-<div class='scenariooutline node' test-id='15' status='pass'>
-	<span class='duration right label'>0h 0m 0s+680ms</span>
-	<div class='desc'>
-		<b>ScenarioOutline</b>
-		<span class="desc-text">User want to retrieved terminal related details</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='16' class='node scenario pass' status='pass'>
-			<div class='category-list'>
-				<span class='category label white-text'>@Test</span>
-			</div>
-			
-			<b>Scenario</b>
-			
-			<span class="bdd-step-name">User want to retrieved terminal related details</span>
-			
-				<ul class='steps'>
-					<li test-id='17' class='node given pass' status='pass'><b>Given</b>
-						<span class="bdd-step-name">Given I want to retrieve terminal details</span>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='18' class='node and pass' status='pass'><b>And</b>
-						<span class="bdd-step-name">And I want to request data with terminal id</span>
-							<div class='pre'><table><tr><td>ATM 1</td></tr></table></div>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='19' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When i request get resource</span>
-							<div class='pre'>passed</div>
-					</li>
-					<li test-id='20' class='node then pass' status='pass'><b>Then</b>
-						<span class="bdd-step-name">Then Verify user received 404 not found response</span>
+						<span class="bdd-step-name">When i want to post request</span>
 							<div class='pre'>passed</div>
 					</li>
 				</ul>
@@ -383,16 +281,15 @@ Expected: is <204>
 				
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@Test</span>
+						<span class='category-name'>@manish</span>
 						<span class='category-status right'>
 							<span class='label pass'>1</span>
-							<span class='label fail'>2</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
 							<span class='label green accent-4 white-text'>Passed: 1</span>
-							<span class='label red lighten-1 white-text'>Failed: 2</span>
+							
 							
 						</div>
 					
@@ -407,18 +304,8 @@ Expected: is <204>
 								</thead>
 								<tbody>
 									<tr>
-										<td>Dec 3, 2020 02:03:26 AM</td>
-										<td class='linked' test-id='3'>Get Terminal Details Functional Test.User want to retrieved terminal related details.User want to retrieved terminal related details</td>
-										<td><span class='test-status fail'>fail</span></td>
-									</tr>
-									<tr>
-										<td>Dec 3, 2020 02:03:29 AM</td>
-										<td class='linked' test-id='10'>Get Terminal Details Functional Test.User want to retrieved terminal related details.User want to retrieved terminal related details</td>
-										<td><span class='test-status fail'>fail</span></td>
-									</tr>
-									<tr>
-										<td>Dec 3, 2020 02:03:30 AM</td>
-										<td class='linked' test-id='16'>Get Terminal Details Functional Test.User want to retrieved terminal related details.User want to retrieved terminal related details</td>
+										<td>Dec 6, 2020 09:40:09 PM</td>
+										<td class='linked' test-id='3'>Post Terminal Details Functional Test.User want to retrieved terminal related details.User want to retrieved terminal related details</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -438,86 +325,6 @@ Expected: is <204>
 	</div>
 </div>
 <!-- category view -->
-<div id='exception-view' class='view hide'>
-
-    <section id='controls'>
-        <div class='controls grey lighten-4'>
-            <!-- search -->
-            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
-                <a href="#" class='search-div'>
-                    <i class='material-icons'>search</i> Search
-                </a>
-
-                <div class='input-field left hide'>
-                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
-                </div>
-
-            </div>
-            <!-- search -->
-        </div>
-    </section>
-
-    <div class='subview-left left'>
-
-        <div class='view-summary'>
-            <h5>Exceptions</h3>
-                <ul id='exception-collection' class='exception-collection'>
-
-                        <li class='exception displayed active'>
-                            <div class='exception-heading'>
-                                <span class='exception-name'>java.lang.AssertionError</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
-                            </div>
-                            <div class='exception-content hide'>
-                                <div class='exception-tests'>
-                                    <table class='bordered table-results'>
-                                        <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                                    <tr>
-                                                        <td>Dec 3, 2020 02:03:29 AM</td>
-                                                        <td class='linked' test-id='7'>Get Terminal Details Functional Test.User want to retrieved terminal related details.User want to retrieved terminal related details.Then Verify user received 200 ok response</td>
-                                                        <td><pre><textarea>java.lang.AssertionError: 
-Expected: is <200>
-     but: was <404>
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
-	at com.BDD.testSteps.HttpCodeSteps.verify_user_received_ok_response(HttpCodeSteps.java:15)
-	at ?.Then Verify user received 200 ok response(getTerminalDetails.feature:10)
-</textarea></pre></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Dec 3, 2020 02:03:30 AM</td>
-                                                        <td class='linked' test-id='14'>Get Terminal Details Functional Test.User want to retrieved terminal related details.User want to retrieved terminal related details.Then Verify user received 204 No Content response</td>
-                                                        <td><pre><textarea>java.lang.AssertionError: 
-Expected: is <204>
-     but: was <404>
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
-	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
-	at com.BDD.testSteps.HttpCodeSteps.verify_user_received_No_Content_response(HttpCodeSteps.java:20)
-	at ?.Then Verify user received 204 No Content response(getTerminalDetails.feature:24)
-</textarea></pre></td>
-                                                    </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </li>
-                </ul>
-        </div>
-    </div>
-
-    <div class='subview-right left'>
-        <div class='view-summary'>
-            <h5 class='exception-name'></h5>
-        </div>
-    </div>
-</div>
 <!-- exception view -->
 <div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
@@ -533,31 +340,31 @@ Expected: is <204>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>13</div>
+					<div class='panel-lead'>3</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Dec 3, 2020 02:03:26 AM</div>
+					<div class='panel-lead'>Dec 6, 2020 09:40:09 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Dec 3, 2020 02:03:30 AM</div>
+			 		<div class='panel-lead'>Dec 6, 2020 09:40:12 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>4,048ms</div>
+					<div class='panel-lead'>2,943ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -592,9 +399,9 @@ Expected: is <204>
 							<th>Others</th>
 						</tr>
 						<tr>
-							<td>@Test</td>
+							<td>@manish</td>
 							<td>1</td>
-							<td>2</td>
+							<td>0</td>
 							<td>0</td>
 						</tr>
 					</table>
@@ -619,31 +426,31 @@ Expected: is <204>
 
 		<script>
 			var statusGroup = {
-				passParent: 0,
-				failParent: 1,
+				passParent: 1,
+				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 1,
+				exceptionsParent: 0,
 				
 				passChild: 1,
-				failChild: 2,
+				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 2,
+				exceptionsChild: 0,
 				
-				passGrandChild: 10,
-				failGrandChild: 2,
+				passGrandChild: 3,
+				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 1,
+				skipGrandChild: 0,
 				infoGrandChild: 0,
-				exceptionsGrandChild: 3,
+				exceptionsGrandChild: 0,
 			};
 		</script>
 		

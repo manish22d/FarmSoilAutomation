@@ -12,9 +12,10 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src//test//resources//features", glue = "com.BDD.testSteps", plugin = {
-		"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:src/test/resources/reports//report.html",
-		"html:output/html-report" }, monochrome = true)
+@CucumberOptions(features = "src//test//resources//features", 
+		glue = "com.BDD.testSteps", 
+		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:src/test/resources/reports//report.html","html:output/html-report" }, 
+		monochrome = true)
 
 public class TestRunner extends TestBase {
 	@AfterClass
