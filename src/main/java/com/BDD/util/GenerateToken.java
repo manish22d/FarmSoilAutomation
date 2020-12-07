@@ -8,9 +8,13 @@ import com.BDD.testBase.TestBase;
 public class GenerateToken {
 
 	public static String getAuthToken() {
+		
+		System.out.println(TestUtility.getConfigProperty("userID"));
+		
 		TestBase tb = new TestBase();
 		tb.setAPIEndpoint("");
 //		tb.getResource();
-		return tb.getResponseString();
+//		return tb.getResponseString();
+		return "";
 	}
 }

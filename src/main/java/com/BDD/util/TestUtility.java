@@ -3,11 +3,11 @@ package com.BDD.util;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Properties;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -46,6 +46,18 @@ public class TestUtility extends TestBase {
 
 		}
 		return data;
+	}
+
+	public static String getConfigProperty(String key) {
+		try {
+			property = new Properties();
+			InputStream is = new FileInputStream(Constants.CONFIG_PROPERTY);
+			property.load(is);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		String value = (String) property.get(key);
+		return value;
 	}
 
 	// Set Date For Log4J.

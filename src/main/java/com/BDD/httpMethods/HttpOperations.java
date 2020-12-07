@@ -1,7 +1,5 @@
 package com.BDD.httpMethods;
 
-import com.google.gson.JsonObject;
-
 public class HttpOperations extends HttpHelper {
 
 	/**

@@ -1,11 +1,5 @@
 package com.BDD.httpMethods;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 
