@@ -17,6 +17,12 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import com.BDD.Constant.Constants;
 import com.BDD.testBase.TestBase;
 
+/**
+ * Utility class, methods are accessible directly
+ * 
+ * @author Manish
+ *
+ */
 public class TestUtility extends TestBase {
 
 	public static Workbook book;

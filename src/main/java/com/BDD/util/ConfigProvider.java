@@ -3,6 +3,12 @@ package com.BDD.util;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
+/**
+ * Class for all config related operation
+ * 
+ * @author Manish
+ *
+ */
 public class ConfigProvider {
 
 	public static Config getConfig() {

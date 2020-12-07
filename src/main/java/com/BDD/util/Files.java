@@ -5,6 +5,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
+/**
+ * use this class to read different files
+ * 
+ * @author Manish
+ *
+ */
 public class Files {
 
 	/**

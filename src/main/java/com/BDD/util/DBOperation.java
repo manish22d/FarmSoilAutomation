@@ -6,6 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Class for all database related operation
+ * 
+ * @author Manish
+ *
+ */
 public class DBOperation {
 	Connection conn;
 	Statement st;

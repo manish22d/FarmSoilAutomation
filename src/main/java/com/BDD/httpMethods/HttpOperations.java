@@ -1,5 +1,11 @@
 package com.BDD.httpMethods;
 
+/**
+ * class for http operations
+ * 
+ * @author manish
+ *
+ */
 public class HttpOperations extends HttpHelper {
 
 	/**

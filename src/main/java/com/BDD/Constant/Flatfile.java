@@ -1,5 +1,14 @@
 package com.BDD.Constant;
 
+/**
+ * Class class to store file names
+ * 
+ * @author Manish
+ *
+ */
 public class Flatfile {
+	/**
+	 * terminal request file
+	 */
 	public static String TERMINAL_REQUEST = "terminal_request.json";
 }

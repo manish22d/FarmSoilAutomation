@@ -4,7 +4,7 @@ import com.BDD.httpMethods.BaseClass;
 import com.BDD.httpMethods.HttpOperations;
 
 /**
- * this class is used to store instace all class which will be used in test
+ * This class is used to store instace all class which will be used in test
  * class
  * 
  * @author Manish

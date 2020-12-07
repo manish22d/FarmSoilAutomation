@@ -4,6 +4,12 @@ import java.util.Map;
 
 import com.google.gson.JsonObject;
 
+/**
+ * Helper class for http methods
+ * 
+ * @author Manish
+ *
+ */
 public class HttpHelper extends BaseClass {
 
 	/**

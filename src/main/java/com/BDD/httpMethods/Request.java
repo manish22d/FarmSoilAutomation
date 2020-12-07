@@ -3,6 +3,12 @@ package com.BDD.httpMethods;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 
+/**
+ * Class used for request manipulation
+ * 
+ * @author manish
+ *
+ */
 public class Request {
 	public String requestPayload;
 
