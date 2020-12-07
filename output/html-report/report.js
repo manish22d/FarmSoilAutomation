@@ -44,29 +44,31 @@ formatter.step({
         "\u003cterminalId\u003e"
       ],
       "line": 10
+    },
+    {
+      "comments": [
+        {
+          "line": 11,
+          "value": "#When i want to post request"
+        },
+        {
+          "line": 12,
+          "value": "#Then verify user received 200 ok response"
+        },
+        {
+          "line": 13,
+          "value": "#And i want to validate result against database"
+        }
+      ],
+      "cells": [
+        "\u003cterminalId\u003e"
+      ],
+      "line": 14
     }
   ],
   "keyword": "And "
 });
 formatter.examples({
-  "comments": [
-    {
-      "line": 11,
-      "value": "#When i want to post request"
-    },
-    {
-      "line": 12,
-      "value": "#Then verify user received 200 ok response"
-    },
-    {
-      "line": 13,
-      "value": "#And i want to validate result against database"
-    },
-    {
-      "line": 14,
-      "value": "#\t\t\t| \u003cterminalId\u003e |"
-    }
-  ],
   "line": 15,
   "name": "",
   "description": "",
@@ -130,6 +132,26 @@ formatter.step({
         "ATM 1"
       ],
       "line": 10
+    },
+    {
+      "comments": [
+        {
+          "line": 11,
+          "value": "#When i want to post request"
+        },
+        {
+          "line": 12,
+          "value": "#Then verify user received 200 ok response"
+        },
+        {
+          "line": 13,
+          "value": "#And i want to validate result against database"
+        }
+      ],
+      "cells": [
+        "ATM 1"
+      ],
+      "line": 14
     }
   ],
   "keyword": "And "
@@ -138,14 +160,14 @@ formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_update_terminal_details()"
 });
 formatter.result({
-  "duration": 856069500,
+  "duration": 855645900,
   "status": "passed"
 });
 formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_id_from_excel_sheet(String\u003e)"
 });
 formatter.result({
-  "duration": 513784500,
+  "duration": 456165200,
   "status": "passed"
 });
 });

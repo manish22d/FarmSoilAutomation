@@ -52,8 +52,12 @@ public class TestUtility extends TestBase {
 
 		for (int i = 0; i < sheet.getLastRowNum() + 1; i++) {
 			for (int k = 1; k < sheet.getRow(0).getLastCellNum(); k++) {
-				if (sheet.getRow(0).getCell(k).toString().equals(terminalid))
+				if (sheet.getRow(0).getCell(k).toString().equals(terminalid)
+						&& !sheet.getRow(i).getCell(k).getStringCellValue().equals("-")) {
+					System.out.println(
+							sheet.getRow(i).getCell(0).toString() + " " + sheet.getRow(i).getCell(k).toString());
 					data.put(sheet.getRow(i).getCell(0).toString(), sheet.getRow(i).getCell(k).toString());
+				}
 			}
 
 		}

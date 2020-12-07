@@ -51,7 +51,7 @@ public class TerminalDetailsSteps extends Instance {
 		testBase.setAPIEndpoint(Endpoint.POST_TERMINAL_DETAILS);
 		testBase.setHeader("Accept", "application/json");
 		testBase.setHeader("Content-Type", "application/json");
-		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
+//		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
 		requestPayload.setRequestPayload(file.readJson(Flatfile.TERMINAL_REQUEST));
 		System.out.println(requestPayload.getRequestPayload());
 	}
@@ -68,8 +68,7 @@ public class TerminalDetailsSteps extends Instance {
 
 		Map<String, String> td = TestUtility.getTestData(terminal.get(0));
 		System.out.println(td);
-//		requestPayload.updateJsonRequest("terminalid", terminal.get(0));
-//		testConf = testConf.getConfig("updateTerminal").getConfig(terminal.get(0));
+		requestPayload.updateJsonRequest("terminalid", terminal.get(0));
 		requestPayload.updateJsonRequest("$.states[0].uri", td.get("uri"));
 	}
 
