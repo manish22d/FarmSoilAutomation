@@ -26,31 +26,49 @@ formatter.step({
   "keyword": "Given "
 });
 formatter.step({
-  "line": 7,
-  "name": "I want to updated request with terminal id",
+  "comments": [
+    {
+      "line": 7,
+      "value": "#And I want to updated request with terminal id"
+    },
+    {
+      "line": 8,
+      "value": "#| \u003cterminalId\u003e |"
+    }
+  ],
+  "line": 9,
+  "name": "I want to updated request with terminal id from excel sheet",
   "rows": [
     {
       "cells": [
         "\u003cterminalId\u003e"
       ],
-      "line": 8
+      "line": 10
     }
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 9,
+  "line": 11,
   "name": "i want to post request",
   "keyword": "When "
 });
 formatter.examples({
   "comments": [
     {
-      "line": 10,
+      "line": 12,
       "value": "#Then verify user received 200 ok response"
+    },
+    {
+      "line": 13,
+      "value": "#And i want to validate result against database"
+    },
+    {
+      "line": 14,
+      "value": "#\t\t\t| \u003cterminalId\u003e |"
     }
   ],
-  "line": 12,
+  "line": 15,
   "name": "",
   "description": "",
   "id": "post-terminal-details-functional-test;user-want-to-retrieved-terminal-related-details;",
@@ -59,21 +77,21 @@ formatter.examples({
       "cells": [
         "terminalId"
       ],
-      "line": 13,
+      "line": 16,
       "id": "post-terminal-details-functional-test;user-want-to-retrieved-terminal-related-details;;1"
     },
     {
       "cells": [
         "ATM 1"
       ],
-      "line": 14,
+      "line": 17,
       "id": "post-terminal-details-functional-test;user-want-to-retrieved-terminal-related-details;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 14,
+  "line": 17,
   "name": "User want to retrieved terminal related details",
   "description": "",
   "id": "post-terminal-details-functional-test;user-want-to-retrieved-terminal-related-details;;2",
@@ -92,8 +110,18 @@ formatter.step({
   "keyword": "Given "
 });
 formatter.step({
-  "line": 7,
-  "name": "I want to updated request with terminal id",
+  "comments": [
+    {
+      "line": 7,
+      "value": "#And I want to updated request with terminal id"
+    },
+    {
+      "line": 8,
+      "value": "#| \u003cterminalId\u003e |"
+    }
+  ],
+  "line": 9,
+  "name": "I want to updated request with terminal id from excel sheet",
   "matchedColumns": [
     0
   ],
@@ -102,13 +130,13 @@ formatter.step({
       "cells": [
         "ATM 1"
       ],
-      "line": 8
+      "line": 10
     }
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 9,
+  "line": 11,
   "name": "i want to post request",
   "keyword": "When "
 });
@@ -116,21 +144,21 @@ formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_update_terminal_details()"
 });
 formatter.result({
-  "duration": 661512500,
+  "duration": 870008300,
   "status": "passed"
 });
 formatter.match({
-  "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_id(String\u003e)"
+  "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_id_from_excel_sheet(String\u003e)"
 });
 formatter.result({
-  "duration": 40305600,
+  "duration": 560200600,
   "status": "passed"
 });
 formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_post_request()"
 });
 formatter.result({
-  "duration": 2057413900,
+  "duration": 3453078800,
   "status": "passed"
 });
 });

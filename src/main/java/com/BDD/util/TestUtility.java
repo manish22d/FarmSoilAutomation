@@ -4,7 +4,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -19,9 +22,7 @@ public class TestUtility extends TestBase {
 	public static Workbook book;
 	public static Sheet sheet;
 
-	// DataProvider Utility is used for getting Data from Excel ==>> Should be used
-	// with @DataProvider.
-	public static String[][] getTestData(String sheetName) {
+	public static HashMap<String, String> getTestData(String terminalid) {
 		FileInputStream file = null;
 		try {
 			file = new FileInputStream(Constants.TEST_DATA_SHEET_PATH);
@@ -34,12 +35,15 @@ public class TestUtility extends TestBase {
 			e.printStackTrace();
 		}
 
-		sheet = book.getSheet(sheetName);
-		String[][] data = new String[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
+		sheet = book.getSheetAt(0);
+		HashMap<String, String> data = new HashMap<String, String>();
+
 		for (int i = 0; i < sheet.getLastRowNum(); i++) {
-			for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
-				data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
+			for (int k = 1; k < sheet.getRow(0).getLastCellNum(); k++) {
+				if (sheet.getRow(0).getCell(k).toString().equals(terminalid))
+					data.put(sheet.getRow(i).getCell(0).toString(), sheet.getRow(i).getCell(k).toString());
 			}
+
 		}
 		return data;
 	}

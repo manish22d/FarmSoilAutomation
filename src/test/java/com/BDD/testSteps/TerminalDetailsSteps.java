@@ -6,12 +6,16 @@ import static org.hamcrest.Matchers.is;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.BDD.Constant.Endpoint;
 import com.BDD.Constant.Flatfile;
 import com.BDD.runner.Instance;
 import com.BDD.util.ConfigProvider;
+import com.BDD.util.DBOperation;
+import com.BDD.util.TestUtility;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.typesafe.config.Config;
 
@@ -22,6 +26,7 @@ import cucumber.api.java.en.When;
 public class TerminalDetailsSteps extends Instance {
 
 	Config testConf = ConfigProvider.getConfig();
+	DBOperation db = new DBOperation();
 
 	@Given("^I want to retrieve terminal details$")
 	public void i_want_to_retrieve_terminal_details() {
@@ -55,7 +60,15 @@ public class TerminalDetailsSteps extends Instance {
 		requestPayload.updateJsonRequest("terminalid", terminal.get(0));
 		testConf = testConf.getConfig("updateTerminal").getConfig(terminal.get(0));
 		requestPayload.updateJsonRequest("$.states[0].uri", testConf.getString("uri"));
-		
+	}
+
+	@Given("^I want to updated request with terminal id from excel sheet$")
+	public void i_want_to_updated_request_with_terminal_id_from_excel_sheet(List<String> terminal) throws Throwable {
+
+		Map<String, String> td = TestUtility.getTestData(terminal.get(0));
+//		requestPayload.updateJsonRequest("terminalid", terminal.get(0));
+//		testConf = testConf.getConfig("updateTerminal").getConfig(terminal.get(0));
+		requestPayload.updateJsonRequest("$.states[0].uri", td.get("uri"));
 	}
 
 	@When("^i want to post request$")
@@ -75,6 +88,18 @@ public class TerminalDetailsSteps extends Instance {
 		List<String> expectedDevices = testConf.getConfig("terminals")
 				.getStringList(terminalId.get(0).replace(" ", ""));
 		assertThat(devicesInResponse, is(equalTo(expectedDevices)));
+	}
+
+	@When("^i want to validate result against database$")
+	public void i_want_to_validate_result_against_database(List<String> terminalId) {
+		db.getTerminalDetails(terminalId.get(0));
+
+		JsonObject terminal = JsonParser.parseString(testBase.getResponseString()).getAsJsonObject()
+				.getAsJsonArray("terminals").get(0).getAsJsonObject().getAsJsonArray("devices").get(0)
+				.getAsJsonObject();
+		assertThat(terminal.getAsJsonObject().get("deviceId").getAsString(),
+				is(equalTo(db.getTerminalDetails(terminalId.get(0)))));
+
 	}
 
 }
