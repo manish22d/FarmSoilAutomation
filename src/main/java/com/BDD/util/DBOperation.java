@@ -23,10 +23,16 @@ public class DBOperation {
 		}
 	}
 
+	/**
+	 * accept terminal id as param and return query result in response
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public String getTerminalDetails(String id) {
 		try {
 			st = conn.createStatement();
-			rs = st.executeQuery("select * from devices where id="+id);
+			rs = st.executeQuery("select * from devices where id=" + id);
 			while (rs.next()) {
 				return rs.getString("DEVICEID");
 			}

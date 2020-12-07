@@ -8,6 +8,7 @@ public class HttpHelper extends BaseClass {
 
 	/**
 	 * This method is use to update endpoint
+	 * 
 	 * @param basePath
 	 */
 	public void setAPIEndpoint(String basePath) {
@@ -15,8 +16,8 @@ public class HttpHelper extends BaseClass {
 	}
 
 	/**
-	 * set  header to request
-	 *  
+	 * set header to request
+	 * 
 	 * @param headerKey
 	 * @param headerValue
 	 */
@@ -24,18 +25,39 @@ public class HttpHelper extends BaseClass {
 		request.headers(headerKey, headerValue);
 	}
 
+	/**
+	 * update query param in map
+	 * 
+	 * @param queryParam
+	 */
 	public void setQueryParam(Map<String, String> queryParam) {
 		request.queryParams(queryParam);
 	}
 
+	/**
+	 * update path param
+	 * 
+	 * @param paramName
+	 * @param paramValue
+	 */
 	public void updatePathParam(String paramName, String paramValue) {
 		request.pathParam(paramName, paramValue);
 	}
 
+	/**
+	 * returns response body
+	 * 
+	 * @return
+	 */
 	public String getResponseString() {
 		return response.getBody().asString();
 	}
 
+	/**
+	 * update request body
+	 * 
+	 * @param requestPayload
+	 */
 	public void updateRequest(JsonObject requestPayload) {
 		request.body(requestPayload);
 	}

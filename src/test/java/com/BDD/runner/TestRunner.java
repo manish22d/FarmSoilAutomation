@@ -10,7 +10,11 @@ import com.vimalselvam.cucumber.listener.Reporter;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
-
+/**
+ * cucumber runner class
+ * @author Manish
+ *
+ */
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src//test//resources//features", 
 		glue = "com.BDD.testSteps", 

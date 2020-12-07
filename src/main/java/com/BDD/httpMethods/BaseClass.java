@@ -6,7 +6,12 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-
+/**
+ * 
+ * @author Manish
+ * Execution is suppose to start from base class. 
+ *
+ */
 public class BaseClass {
 	public RequestSpecification request;
 	public Response response;

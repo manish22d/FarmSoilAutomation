@@ -67,6 +67,7 @@ public class TerminalDetailsSteps extends Instance {
 	public void i_want_to_updated_request_with_terminal_id_from_excel_sheet(List<String> terminal) throws Throwable {
 
 		Map<String, String> td = TestUtility.getTestData(terminal.get(0));
+		System.out.println(td);
 //		requestPayload.updateJsonRequest("terminalid", terminal.get(0));
 //		testConf = testConf.getConfig("updateTerminal").getConfig(terminal.get(0));
 		requestPayload.updateJsonRequest("$.states[0].uri", td.get("uri"));

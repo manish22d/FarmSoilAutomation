@@ -7,6 +7,12 @@ import java.util.stream.Collectors;
 
 public class Files {
 
+	/**
+	 * accepts json file name and return json as string
+	 * 
+	 * @param fileName
+	 * @return
+	 */
 	public String readJson(String fileName) {
 		InputStream is = this.getClass().getClassLoader().getResourceAsStream("payload/" + fileName);
 		try {

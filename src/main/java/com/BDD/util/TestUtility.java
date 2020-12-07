@@ -22,6 +22,12 @@ public class TestUtility extends TestBase {
 	public static Workbook book;
 	public static Sheet sheet;
 
+	/**
+	 * reads excel sheet and return map form of selected data
+	 * 
+	 * @param terminalid
+	 * @return
+	 */
 	public static HashMap<String, String> getTestData(String terminalid) {
 		FileInputStream file = null;
 		try {
@@ -38,7 +44,7 @@ public class TestUtility extends TestBase {
 		sheet = book.getSheetAt(0);
 		HashMap<String, String> data = new HashMap<String, String>();
 
-		for (int i = 0; i < sheet.getLastRowNum(); i++) {
+		for (int i = 0; i < sheet.getLastRowNum() + 1; i++) {
 			for (int k = 1; k < sheet.getRow(0).getLastCellNum(); k++) {
 				if (sheet.getRow(0).getCell(k).toString().equals(terminalid))
 					data.put(sheet.getRow(i).getCell(0).toString(), sheet.getRow(i).getCell(k).toString());
@@ -48,6 +54,12 @@ public class TestUtility extends TestBase {
 		return data;
 	}
 
+	/**
+	 * read config property file return value of given key
+	 * 
+	 * @param key
+	 * @return
+	 */
 	public static String getConfigProperty(String key) {
 		try {
 			property = new Properties();
