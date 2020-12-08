@@ -12,12 +12,12 @@ import com.BDD.util.Files;
  */
 public class Instance {
 
-	public TestBase testBase = new TestBase();
+	public static TestBase testBase = new TestBase();
 	public Files file = new Files();
 	public Request requestPayload = new Request();
 
 	public void setTestBase(TestBase testBase) {
-		this.testBase = testBase;
+		Instance.testBase = testBase;
 	}
 
 }

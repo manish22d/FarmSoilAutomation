@@ -26,40 +26,43 @@ formatter.step({
   "keyword": "Given "
 });
 formatter.step({
-  "comments": [
-    {
-      "line": 7,
-      "value": "#And I want to updated request with terminal id"
-    },
-    {
-      "line": 8,
-      "value": "#| \u003cterminalId\u003e |"
-    }
-  ],
-  "line": 9,
-  "name": "I want to updated request with terminal id from excel sheet",
+  "line": 7,
+  "name": "I want to updated request with terminal id",
   "rows": [
     {
       "cells": [
         "\u003cterminalId\u003e"
       ],
-      "line": 10
+      "line": 8
+    }
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 9,
+      "value": "#And I want to updated request with terminal id from excel sheet"
     },
     {
-      "comments": [
-        {
-          "line": 11,
-          "value": "#When i want to post request"
-        },
-        {
-          "line": 12,
-          "value": "#Then verify user received 200 ok response"
-        },
-        {
-          "line": 13,
-          "value": "#And i want to validate result against database"
-        }
-      ],
+      "line": 10,
+      "value": "#| \u003cterminalId\u003e |"
+    }
+  ],
+  "line": 11,
+  "name": "i want to post request",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 12,
+  "name": "verify user received 200 ok response",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 13,
+  "name": "i want to validate result against database",
+  "rows": [
+    {
       "cells": [
         "\u003cterminalId\u003e"
       ],
@@ -69,7 +72,7 @@ formatter.step({
   "keyword": "And "
 });
 formatter.examples({
-  "line": 15,
+  "line": 16,
   "name": "",
   "description": "",
   "id": "post-terminal-details-functional-test;user-want-to-retrieved-terminal-related-details;",
@@ -78,21 +81,28 @@ formatter.examples({
       "cells": [
         "terminalId"
       ],
-      "line": 16,
+      "line": 17,
       "id": "post-terminal-details-functional-test;user-want-to-retrieved-terminal-related-details;;1"
     },
     {
       "cells": [
         "ATM 1"
       ],
-      "line": 17,
+      "line": 18,
       "id": "post-terminal-details-functional-test;user-want-to-retrieved-terminal-related-details;;2"
+    },
+    {
+      "cells": [
+        "ATM 2"
+      ],
+      "line": 19,
+      "id": "post-terminal-details-functional-test;user-want-to-retrieved-terminal-related-details;;3"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 17,
+  "line": 18,
   "name": "User want to retrieved terminal related details",
   "description": "",
   "id": "post-terminal-details-functional-test;user-want-to-retrieved-terminal-related-details;;2",
@@ -111,18 +121,8 @@ formatter.step({
   "keyword": "Given "
 });
 formatter.step({
-  "comments": [
-    {
-      "line": 7,
-      "value": "#And I want to updated request with terminal id"
-    },
-    {
-      "line": 8,
-      "value": "#| \u003cterminalId\u003e |"
-    }
-  ],
-  "line": 9,
-  "name": "I want to updated request with terminal id from excel sheet",
+  "line": 7,
+  "name": "I want to updated request with terminal id",
   "matchedColumns": [
     0
   ],
@@ -131,23 +131,39 @@ formatter.step({
       "cells": [
         "ATM 1"
       ],
-      "line": 10
+      "line": 8
+    }
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 9,
+      "value": "#And I want to updated request with terminal id from excel sheet"
     },
     {
-      "comments": [
-        {
-          "line": 11,
-          "value": "#When i want to post request"
-        },
-        {
-          "line": 12,
-          "value": "#Then verify user received 200 ok response"
-        },
-        {
-          "line": 13,
-          "value": "#And i want to validate result against database"
-        }
-      ],
+      "line": 10,
+      "value": "#| \u003cterminalId\u003e |"
+    }
+  ],
+  "line": 11,
+  "name": "i want to post request",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 12,
+  "name": "verify user received 200 ok response",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 13,
+  "name": "i want to validate result against database",
+  "matchedColumns": [
+    0
+  ],
+  "rows": [
+    {
       "cells": [
         "ATM 1"
       ],
@@ -160,14 +176,141 @@ formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_update_terminal_details()"
 });
 formatter.result({
-  "duration": 855645900,
+  "duration": 535343100,
   "status": "passed"
 });
 formatter.match({
-  "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_id_from_excel_sheet(String\u003e)"
+  "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_id(String\u003e)"
 });
 formatter.result({
-  "duration": 456165200,
+  "duration": 51520300,
   "status": "passed"
+});
+formatter.match({
+  "location": "TerminalDetailsSteps.i_want_to_post_request()"
+});
+formatter.result({
+  "duration": 2141983100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "HttpCodeSteps.verify_user_received_ok_response()"
+});
+formatter.result({
+  "duration": 5837800,
+  "error_message": "java.lang.AssertionError: \nExpected: is \u003c200\u003e\n     but: was \u003c404\u003e\r\n\tat org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)\r\n\tat org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)\r\n\tat com.BDD.testSteps.HttpCodeSteps.verify_user_received_ok_response(HttpCodeSteps.java:20)\r\n\tat ✽.Then verify user received 200 ok response(Post_Terminal.feature:12)\r\n",
+  "status": "failed"
+});
+formatter.match({
+  "location": "TerminalDetailsSteps.i_want_to_validate_result_against_database(String\u003e)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.scenario({
+  "line": 19,
+  "name": "User want to retrieved terminal related details",
+  "description": "",
+  "id": "post-terminal-details-functional-test;user-want-to-retrieved-terminal-related-details;;3",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 4,
+      "name": "@manish"
+    }
+  ]
+});
+formatter.step({
+  "line": 6,
+  "name": "I want to update terminal details",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 7,
+  "name": "I want to updated request with terminal id",
+  "matchedColumns": [
+    0
+  ],
+  "rows": [
+    {
+      "cells": [
+        "ATM 2"
+      ],
+      "line": 8
+    }
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 9,
+      "value": "#And I want to updated request with terminal id from excel sheet"
+    },
+    {
+      "line": 10,
+      "value": "#| \u003cterminalId\u003e |"
+    }
+  ],
+  "line": 11,
+  "name": "i want to post request",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 12,
+  "name": "verify user received 200 ok response",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 13,
+  "name": "i want to validate result against database",
+  "matchedColumns": [
+    0
+  ],
+  "rows": [
+    {
+      "cells": [
+        "ATM 2"
+      ],
+      "line": 14
+    }
+  ],
+  "keyword": "And "
+});
+formatter.match({
+  "location": "TerminalDetailsSteps.i_want_to_update_terminal_details()"
+});
+formatter.result({
+  "duration": 6970200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_id(String\u003e)"
+});
+formatter.result({
+  "duration": 6879100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "TerminalDetailsSteps.i_want_to_post_request()"
+});
+formatter.result({
+  "duration": 778778900,
+  "status": "passed"
+});
+formatter.match({
+  "location": "HttpCodeSteps.verify_user_received_ok_response()"
+});
+formatter.result({
+  "duration": 248000,
+  "error_message": "java.lang.AssertionError: \nExpected: is \u003c200\u003e\n     but: was \u003c404\u003e\r\n\tat org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)\r\n\tat org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)\r\n\tat com.BDD.testSteps.HttpCodeSteps.verify_user_received_ok_response(HttpCodeSteps.java:20)\r\n\tat ✽.Then verify user received 200 ok response(Post_Terminal.feature:12)\r\n",
+  "status": "failed"
+});
+formatter.match({
+  "location": "TerminalDetailsSteps.i_want_to_validate_result_against_database(String\u003e)"
+});
+formatter.result({
+  "status": "skipped"
 });
 });

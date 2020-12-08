@@ -34,7 +34,7 @@ public class TerminalDetailsSteps extends Instance {
 		testBase.setAPIEndpoint(Endpoint.GET_TERMINAL_DETAILS);
 		testBase.setHeader("Accept", "application/json");
 		testBase.setHeader("Content-Type", "application/json");
-//		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
+		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
 	}
 
 	/**
@@ -61,6 +61,7 @@ public class TerminalDetailsSteps extends Instance {
 		requestPayload.updateJsonRequest("terminalid", terminal.get(0));
 		testConf = testConf.getConfig("updateTerminal").getConfig(terminal.get(0));
 		requestPayload.updateJsonRequest("$.states[0].uri", testConf.getString("uri"));
+		requestPayload.updateJsonRequest("$.states[0].properties[0].value", testConf.getString("Instance"));
 	}
 
 	@Given("^I want to updated request with terminal id from excel sheet$")
@@ -86,7 +87,7 @@ public class TerminalDetailsSteps extends Instance {
 		terminalArray.get(0).getAsJsonObject().getAsJsonArray("devices")
 				.forEach(terminal -> devicesInResponse.add(terminal.getAsJsonObject().get("deviceId").getAsString()));
 
-		List<String> expectedDevices = testConf.getConfig("terminals")
+		List<String> expectedDevices = testConf.getConfig("terminals").getConfig("devices")
 				.getStringList(terminalId.get(0).replace(" ", ""));
 		assertThat(devicesInResponse, is(equalTo(expectedDevices)));
 	}

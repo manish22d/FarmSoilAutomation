@@ -18,7 +18,7 @@ public class HttpHelper extends BaseClass {
 	 * @param basePath
 	 */
 	public void setAPIEndpoint(String basePath) {
-		request.basePath(basePath);
+		BaseClass.basePath = basePath;
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class HttpHelper extends BaseClass {
 	 * @param headerValue
 	 */
 	public void setHeader(String headerKey, String headerValue) {
-		request.headers(headerKey, headerValue);
+		headers.put(headerKey, headerValue);
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class HttpHelper extends BaseClass {
 	 * @param queryParam
 	 */
 	public void setQueryParam(Map<String, String> queryParam) {
-		request.queryParams(queryParam);
+		queryParams.putAll(queryParam);
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class HttpHelper extends BaseClass {
 	 * @param paramValue
 	 */
 	public void updatePathParam(String paramName, String paramValue) {
-		request.pathParam(paramName, paramValue);
+		pathParams.put(paramName, paramValue);
 	}
 
 	/**

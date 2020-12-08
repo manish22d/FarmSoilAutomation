@@ -12,6 +12,7 @@ public class HttpOperations extends HttpHelper {
 	 * trigger Get Request
 	 */
 	public void getResource() {
+		initiateRequest();
 		response = request.get();
 		response.then().log().all();
 	}
@@ -22,6 +23,7 @@ public class HttpOperations extends HttpHelper {
 	 * @param requestPayload
 	 */
 	public void PostRequest(String requestPayload) {
+		initiateRequest();
 		response = request.body(requestPayload).post();
 		response.then().log().all();
 	}
