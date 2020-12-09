@@ -176,28 +176,28 @@ formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_update_terminal_details()"
 });
 formatter.result({
-  "duration": 535343100,
+  "duration": 3672600100,
   "status": "passed"
 });
 formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_id(String\u003e)"
 });
 formatter.result({
-  "duration": 51520300,
+  "duration": 35413200,
   "status": "passed"
 });
 formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_post_request()"
 });
 formatter.result({
-  "duration": 2141983100,
+  "duration": 1040522600,
   "status": "passed"
 });
 formatter.match({
   "location": "HttpCodeSteps.verify_user_received_ok_response()"
 });
 formatter.result({
-  "duration": 5837800,
+  "duration": 3564000,
   "error_message": "java.lang.AssertionError: \nExpected: is \u003c200\u003e\n     but: was \u003c404\u003e\r\n\tat org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)\r\n\tat org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)\r\n\tat com.BDD.testSteps.HttpCodeSteps.verify_user_received_ok_response(HttpCodeSteps.java:20)\r\n\tat ✽.Then verify user received 200 ok response(Post_Terminal.feature:12)\r\n",
   "status": "failed"
 });
@@ -282,28 +282,28 @@ formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_update_terminal_details()"
 });
 formatter.result({
-  "duration": 6970200,
+  "duration": 905591201,
   "status": "passed"
 });
 formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_id(String\u003e)"
 });
 formatter.result({
-  "duration": 6879100,
+  "duration": 1781200,
   "status": "passed"
 });
 formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_post_request()"
 });
 formatter.result({
-  "duration": 778778900,
+  "duration": 1011644500,
   "status": "passed"
 });
 formatter.match({
   "location": "HttpCodeSteps.verify_user_received_ok_response()"
 });
 formatter.result({
-  "duration": 248000,
+  "duration": 269100,
   "error_message": "java.lang.AssertionError: \nExpected: is \u003c200\u003e\n     but: was \u003c404\u003e\r\n\tat org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)\r\n\tat org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)\r\n\tat com.BDD.testSteps.HttpCodeSteps.verify_user_received_ok_response(HttpCodeSteps.java:20)\r\n\tat ✽.Then verify user received 200 ok response(Post_Terminal.feature:12)\r\n",
   "status": "failed"
 });

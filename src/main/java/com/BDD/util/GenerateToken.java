@@ -1,5 +1,6 @@
 package com.BDD.util;
 
+import com.BDD.httpMethods.Request;
 import com.BDD.testBase.TestBase;
 
 /**
@@ -20,8 +21,12 @@ public class GenerateToken {
 		System.out.println(TestUtility.getConfigProperty("userID"));
 
 		TestBase tb = new TestBase();
-		tb.setAPIEndpoint("");
-//		tb.getResource();
+		Request requestPayload = new Request();
+		
+		tb.setAPIEndpoint("AuthToken");
+		tb.setHeader("manish", "value");
+		requestPayload.setRequestPayload("request");
+		tb.PostRequest(requestPayload.getRequestPayload());
 //		return tb.getResponseString();
 		return "";
 	}
