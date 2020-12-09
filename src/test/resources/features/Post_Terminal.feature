@@ -1,7 +1,7 @@
 Feature: Post Terminal Details Functional Test
   I want insert terminal id in db
 
-  @manish
+  
   Scenario Outline: User want to retrieved terminal related details
     Given I want to update terminal details
     And I want to updated request with terminal id

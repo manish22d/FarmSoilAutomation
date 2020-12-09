@@ -31,6 +31,7 @@ public class TerminalDetailsSteps extends Instance {
 
 	@Given("^I want to retrieve terminal details$")
 	public void i_want_to_retrieve_terminal_details() {
+		testBase.initiateTest();
 		testBase.setAPIEndpoint(Endpoint.GET_TERMINAL_DETAILS);
 		testBase.setHeader("Accept", "application/json");
 		testBase.setHeader("Content-Type", "application/json");
