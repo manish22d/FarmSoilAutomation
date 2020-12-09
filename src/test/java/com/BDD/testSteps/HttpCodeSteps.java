@@ -17,7 +17,7 @@ public class HttpCodeSteps extends Instance {
 	 */
 	@Then("^verify user received 200 ok response$")
 	public void verify_user_received_ok_response() {
-		assertThat(testBase.response.getStatusCode(), is(equalTo(HttpStatus.SC_OK)));
+		assertThat(testBase.getResponseStatusCode(), is(equalTo(HttpStatus.SC_OK)));
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class HttpCodeSteps extends Instance {
 	 */
 	@Then("^verify user received 201 create response$")
 	public void verify_user_received_created_response() {
-		assertThat(testBase.response.getStatusCode(), is(equalTo(HttpStatus.SC_CREATED)));
+		assertThat(testBase.getResponseStatusCode(), is(equalTo(HttpStatus.SC_CREATED)));
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class HttpCodeSteps extends Instance {
 	 */
 	@Then("^verify user received 204 No Content response$")
 	public void verify_user_received_No_Content_response() {
-		assertThat(testBase.response.getStatusCode(), is(equalTo(HttpStatus.SC_NO_CONTENT)));
+		assertThat(testBase.getResponseStatusCode(), is(equalTo(HttpStatus.SC_NO_CONTENT)));
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class HttpCodeSteps extends Instance {
 	 */
 	@Then("^verify user received 400 bad request$")
 	public void verify_user_received_bad_request() {
-		assertThat(testBase.response.getStatusCode(), is(equalTo(HttpStatus.SC_BAD_REQUEST)));
+		assertThat(testBase.getResponseStatusCode(), is(equalTo(HttpStatus.SC_BAD_REQUEST)));
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class HttpCodeSteps extends Instance {
 	 */
 	@Then("^verify user received 404 not found response$")
 	public void verify_user_received_not_found_response() {
-		assertThat(testBase.response.getStatusCode(), is(equalTo(HttpStatus.SC_NOT_FOUND)));
+		assertThat(testBase.getResponseStatusCode(), is(equalTo(HttpStatus.SC_NOT_FOUND)));
 	}
 
 	/**
@@ -57,6 +57,6 @@ public class HttpCodeSteps extends Instance {
 	 */
 	@Then("^verify user received server error$")
 	public void verify_user_received_server_error() {
-		assertThat(testBase.response.getStatusCode(), is(equalTo(HttpStatus.SC_INTERNAL_SERVER_ERROR)));
+		assertThat(testBase.getResponseStatusCode(), is(equalTo(HttpStatus.SC_INTERNAL_SERVER_ERROR)));
 	}
 }

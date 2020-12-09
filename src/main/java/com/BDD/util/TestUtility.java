@@ -15,7 +15,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import com.BDD.Constant.Constants;
-import com.BDD.testBase.TestBase;
 
 /**
  * Utility class, methods are accessible directly
@@ -23,10 +22,11 @@ import com.BDD.testBase.TestBase;
  * @author Manish
  *
  */
-public class TestUtility extends TestBase {
+public class TestUtility {
 
 	public static Workbook book;
 	public static Sheet sheet;
+	public static Properties property;
 
 	/**
 	 * reads excel sheet and return map form of selected data

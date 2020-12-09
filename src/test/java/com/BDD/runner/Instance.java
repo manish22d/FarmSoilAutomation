@@ -18,6 +18,7 @@ public class Instance {
 
 	public void setTestBase(TestBase testBase) {
 		Instance.testBase = testBase;
+		
 	}
 
 }

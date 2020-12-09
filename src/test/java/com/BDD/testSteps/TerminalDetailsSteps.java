@@ -48,9 +48,10 @@ public class TerminalDetailsSteps extends Instance {
 
 	@Given("^I want to update terminal details$")
 	public void i_want_to_update_terminal_details() {
+		testBase.initiateTest();
 		testBase.setAPIEndpoint(Endpoint.POST_TERMINAL_DETAILS);
 		testBase.setHeader("Accept", "application/json");
-		testBase.setHeader("Content-Type", "application/json");
+//		testBase.setHeader("Content-Type", "application/json");
 		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
 		requestPayload.setRequestPayload(file.readJson(Flatfile.TERMINAL_REQUEST));
 		System.out.println(requestPayload.getRequestPayload());

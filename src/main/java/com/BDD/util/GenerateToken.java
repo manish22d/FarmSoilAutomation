@@ -21,8 +21,9 @@ public class GenerateToken {
 		System.out.println(TestUtility.getConfigProperty("userID"));
 
 		TestBase tb = new TestBase();
+		tb.initiateTest();
 		Request requestPayload = new Request();
-		
+
 		tb.setAPIEndpoint("AuthToken");
 		tb.setHeader("manish", "value");
 		requestPayload.setRequestPayload("request");
