@@ -88,4 +88,9 @@ public class TestUtility {
 		System.setProperty("current_date", dateFormat.format(new Date()));
 		PropertyConfigurator.configure("./src/main/resources/log4j.properties");
 	}
+
+	public static String getDate() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("_ddMMyyyy_HHmmss");
+		return dateFormat.format(new Date());
+	}
 }
