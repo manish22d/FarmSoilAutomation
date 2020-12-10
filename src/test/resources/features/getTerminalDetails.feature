@@ -15,7 +15,7 @@ Feature: Get Terminal Details Functional Test
       | terminalId |
       | ATM 1      |
 
-  @manish
+
   Scenario Outline: User want to retrieved terminal related details
     Given I want to retrieve terminal details
     And I want to request data with terminal id
