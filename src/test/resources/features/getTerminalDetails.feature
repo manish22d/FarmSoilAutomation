@@ -15,7 +15,20 @@ Feature: Get Terminal Details Functional Test
       | terminalId |
       | ATM 1      |
 
-  
+  @manish
+  Scenario Outline: User want to retrieved terminal related details
+    Given I want to retrieve terminal details
+    And I want to request data with terminal id
+      | <terminalId> |
+    When i request get resource
+    Then verify user received 200 ok response
+    And verify all sub-device id displayed in response
+      | <terminalId> |
+
+    Examples: 
+      | terminalId |
+      | ATM 1      |
+
   Scenario Outline: User want to retrieved terminal related details
     Given I want to retrieve terminal details
     And I want to request data with terminal id
@@ -27,7 +40,6 @@ Feature: Get Terminal Details Functional Test
       | terminalId |
       | ATM 1      |
 
-  
   Scenario Outline: User want to retrieved terminal related details
     Given I want to retrieve terminal details
     And I want to request data with terminal id

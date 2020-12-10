@@ -94,6 +94,45 @@ public class TerminalDetailsSteps extends Instance {
 		assertThat(devicesInResponse, is(equalTo(expectedDevices)));
 	}
 
+	/**
+	 * step def to verify sub devices list
+	 * 
+	 * @param terminalId
+	 */
+	@Then("^verify all sub-device id displayed in response$")
+	public void verify_all_sub_device_id_displayed_in_response(List<String> terminalId) {
+		JsonArray devices = JsonParser.parseString(testBase.getResponseString()).getAsJsonObject()
+				.getAsJsonArray("terminals").get(0).getAsJsonObject().getAsJsonArray("devices");
+
+		testConf = testConf.getConfig("terminals").getConfig("subDevices");
+
+		JsonObject device = new JsonObject();
+		JsonObject subDevice = new JsonObject();
+		for (int i = 0; i < devices.size(); i++) {
+			device = devices.get(i).getAsJsonObject();
+			List<String> expectedSubDevices = testConf.getStringList(device.get("deviceId").getAsString());
+			JsonArray subDevices = device.getAsJsonArray("subDevices");
+			List<String> actualSubDevices = new ArrayList<String>();
+			for (int j = 0; j < subDevices.size(); j++) {
+				subDevice = subDevices.get(j).getAsJsonObject();
+				actualSubDevices.add(subDevice.get("subDeviceId").getAsString());
+			}
+			assertThat(expectedSubDevices, is(equalTo(actualSubDevices)));
+		}
+
+		// another way - Lambda expression and forEach
+		devices.forEach(devicee -> {
+			
+			List<String> expectedSubDevices = testConf
+					.getStringList(devicee.getAsJsonObject().get("deviceId").getAsString().replace(" ", ""));
+			List<String> actualSubDevices = new ArrayList<String>();
+			devicee.getAsJsonObject().getAsJsonArray("subDevices").forEach(
+					subDevice2 -> actualSubDevices.add(subDevice2.getAsJsonObject().get("subDeviceId").getAsString()));
+			assertThat(expectedSubDevices, is(equalTo(actualSubDevices)));
+		});
+
+	}
+
 	@When("^i want to validate result against database$")
 	public void i_want_to_validate_result_against_database(List<String> terminalId) {
 		db.getTerminalDetails(terminalId.get(0));
