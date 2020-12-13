@@ -20,12 +20,10 @@ import cucumber.api.junit.Cucumber;
  *
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src//test//resources//features", 
-		glue = "com.BDD.testSteps", 
-		plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:", 
-		"html:output/html-report" }, monochrome = true)
+@CucumberOptions(features = "src//test//resources//features", glue = "com.BDD.testSteps", plugin = {
+		"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:", "html:output/html-report" }, monochrome = true)
 
-public class TestRunner {
+public class TestRunner extends Instance{
 
 	@BeforeClass
 	public static void setup() {
@@ -39,5 +37,8 @@ public class TestRunner {
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 		Reporter.setSystemInfo("os", "Windows 10");
 		Reporter.setTestRunnerOutput("Sample test runner output message");
+
+		driver.close();
+		driver.quit();
 	}
 }

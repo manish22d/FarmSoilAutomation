@@ -1,6 +1,7 @@
 package com.BDD.runner;
 
 import com.BDD.httpMethods.Request;
+import com.BDD.testBase.BaseUI;
 import com.BDD.testBase.TestBase;
 import com.BDD.util.Files;
 
@@ -10,7 +11,7 @@ import com.BDD.util.Files;
  * @author manish
  *
  */
-public class Instance {
+public class Instance extends BaseUI {
 
 	public static TestBase testBase = new TestBase();
 	public Files file = new Files();

@@ -38,7 +38,7 @@ This is Java based Rest Assured project. It follows  BDD framework
 
 ### Running using maven command
  * we can use below maven command to run test either via command prompt or pipeline.
-      * ```mvn clean test -Dcucumber.options="--tags @debug1```
+      * ```mvn clean test -Dversion=1.0 -Dbrowser=Chrome -Dcucumber.options="--tags @debug1```
    
 ## How do I know if Test is passed? 
  * Option 1 : In Console Failures should be zero
