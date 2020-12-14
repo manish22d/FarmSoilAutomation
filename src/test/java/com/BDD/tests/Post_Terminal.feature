@@ -1,17 +1,18 @@
 Feature: Post Terminal Details Functional Test
   I want insert terminal id in db
 
-  #Background: 
-    #Given I want to retrieve terminal details from UI
-@manish
+  Background: 
+    Given I want to retrieve terminal details from UI
+
+  @manish
   Scenario Outline: User want to retrieved terminal related details
     Given I want to update terminal details
     And I want to updated request with terminal id
       | <terminalId> |
     And I want to updated request with terminal id from excel sheet
-    | <terminalId> |
+      | <terminalId> |
     And I want to updated request with terminal details from excel sheet
-    | <terminalId> |
+      | <terminalId> |
     When i want to post request
     Then verify user received 200 ok response
     And i want to validate result against database
