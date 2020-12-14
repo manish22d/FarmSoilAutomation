@@ -17,14 +17,16 @@ public class UITestSteps extends Instance {
 
 	@Given("^I want to retrieve terminal details from UI$")
 	public void i_want_to_retrieve_terminal_details_UI() {
-		initialization();
-		loginPage = new LoginPage();
-		dashboardPage = loginPage.performLogin(TestUtility.getConfigProperty("userName"),
-				TestUtility.getConfigProperty("password"));
+		if (driver == null) {
+			initialization();
+			loginPage = new LoginPage();
+			dashboardPage = loginPage.performLogin(TestUtility.getConfigProperty("userName"),
+					TestUtility.getConfigProperty("password"));
+		}
 	}
-	
+
 	@Then("^verify all coressponding device id displayed correctly in UI$")
-	public void verify_all_coressponding_device_id_displayed_correctly_in_UI(List<String> terminalID){
+	public void verify_all_coressponding_device_id_displayed_correctly_in_UI(List<String> terminalID) {
 		dashboardPage.getSubDevices(terminalID.get(0));
 	}
 

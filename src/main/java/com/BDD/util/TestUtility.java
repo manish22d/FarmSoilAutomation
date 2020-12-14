@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.PropertyConfigurator;
@@ -58,6 +60,47 @@ public class TestUtility {
 							sheet.getRow(i).getCell(0).toString() + " " + sheet.getRow(i).getCell(k).toString());
 					data.put(sheet.getRow(i).getCell(0).toString(), sheet.getRow(i).getCell(k).toString());
 				}
+			}
+		}
+		return data;
+	}
+
+	public static HashMap<String, List<String>> getTerminalDetailsData(String terminalid) {
+		FileInputStream file = null;
+		try {
+			file = new FileInputStream(Constants.TEST_DATA_SHEET_PATH);
+			book = WorkbookFactory.create(file);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		sheet = book.getSheetAt(1);
+		HashMap<String, List<String>> data = new HashMap<String, List<String>>();
+		List<String> records = new ArrayList<String>();
+		for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
+			data.put(sheet.getRow(0).getCell(i).toString(), records);
+		}
+		List<String> keys = new ArrayList<String>(data.keySet());
+		for (int row = 0; row < sheet.getLastRowNum() + 1; row++) {
+			final Integer innerRow = new Integer(row);
+			if (sheet.getRow(row).getCell(0).toString().equals(terminalid)) {
+				keys.forEach(key -> {
+					System.out.println("loop for -> "+key);
+					
+					for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
+						if (sheet.getRow(0).getCell(i).toString().equals(key)
+								&& !sheet.getRow(innerRow).getCell(i).toString().equals("-")) {
+
+							String item = sheet.getRow(innerRow).getCell(i).toString();
+							List<String> test = new ArrayList<String>();
+							test.addAll(data.get(key));
+							test.add(item);
+							data.put(key, test);
+						}
+					}
+				});
 			}
 		}
 		return data;

@@ -4,7 +4,7 @@ Feature: Get Terminal Details Functional Test
   Background: 
     Given I want to retrieve terminal details from UI
 
-  @manish
+
   Scenario Outline: User want to retrieved terminal related details
     Given I want to retrieve terminal details
     And I want to request data with terminal id

@@ -20,10 +20,10 @@ import cucumber.api.junit.Cucumber;
  *
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src//test//resources//features", glue = "com.BDD.testSteps", plugin = {
+@CucumberOptions(features = "src//test//java//com//BDD//tests", glue = "com.BDD.testSteps", plugin = {
 		"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:", "html:output/html-report" }, monochrome = true)
 
-public class TestRunner extends Instance{
+public class TestRunner extends Instance {
 
 	@BeforeClass
 	public static void setup() {

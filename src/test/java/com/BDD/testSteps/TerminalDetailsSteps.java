@@ -31,6 +31,7 @@ public class TerminalDetailsSteps extends Instance {
 
 	@Given("^I want to retrieve terminal details$")
 	public void i_want_to_retrieve_terminal_details() {
+
 		testBase.initiateTest();
 		testBase.setAPIEndpoint(Endpoint.GET_TERMINAL_DETAILS);
 		testBase.setHeader("Accept", "application/json");
@@ -49,6 +50,7 @@ public class TerminalDetailsSteps extends Instance {
 
 	@Given("^I want to update terminal details$")
 	public void i_want_to_update_terminal_details() {
+
 		testBase.initiateTest();
 		testBase.setAPIEndpoint(Endpoint.POST_TERMINAL_DETAILS);
 		testBase.setHeader("Accept", "application/json");
@@ -68,11 +70,17 @@ public class TerminalDetailsSteps extends Instance {
 
 	@Given("^I want to updated request with terminal id from excel sheet$")
 	public void i_want_to_updated_request_with_terminal_id_from_excel_sheet(List<String> terminal) throws Throwable {
-
 		Map<String, String> td = TestUtility.getTestData(terminal.get(0));
 		System.out.println(td);
 		requestPayload.updateJsonRequest("terminalid", terminal.get(0));
 		requestPayload.updateJsonRequest("$.states[0].uri", td.get("uri"));
+	}
+
+	@Given("^I want to updated request with terminal details from excel sheet$")
+	public void i_want_to_updated_request_with_terminal_details_from_excel_sheet(List<String> terminal) {
+		Map<String, List<String>> td = TestUtility.getTerminalDetailsData(terminal.get(0));
+
+		System.out.println(td);
 	}
 
 	@When("^i want to post request$")
@@ -122,7 +130,7 @@ public class TerminalDetailsSteps extends Instance {
 
 		// another way - Lambda expression and forEach
 		devices.forEach(devicee -> {
-			
+
 			List<String> expectedSubDevices = testConf
 					.getStringList(devicee.getAsJsonObject().get("deviceId").getAsString().replace(" ", ""));
 			List<String> actualSubDevices = new ArrayList<String>();
