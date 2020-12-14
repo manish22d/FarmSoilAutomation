@@ -1,5 +1,7 @@
 package com.BDD.testBase;
 
+import org.apache.log4j.Logger;
+
 import com.BDD.httpMethods.BaseClass;
 
 /**
@@ -12,20 +14,25 @@ import com.BDD.httpMethods.BaseClass;
 public class TestBase {
 
 	BaseClass base;
+	public Logger log = Logger.getLogger(TestBase.class.getClass());
 
 	public void initiateTest() {
+		log.info("initialized baseClass");
 		base = new BaseClass();
 	}
 
 	public void setAPIEndpoint(String endpoint) {
+		log.info("Setting Endpoint to : " + endpoint);
 		this.base.setAPIEndpoint(endpoint);
 	}
 
 	public void setHeader(String headerKey, String headerValue) {
+		log.info("updating header  : " + headerKey + " with " + headerValue);
 		this.base.setHeader(headerKey, headerValue);
 	}
 
 	public void updatePathParam(String paramName, String paramValue) {
+		log.info("updating path param  : " + paramName + " to " + paramValue);
 		this.base.updatePathParam(paramName, paramValue);
 	}
 

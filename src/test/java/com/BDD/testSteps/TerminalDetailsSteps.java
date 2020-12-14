@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.BDD.Constant.Endpoint;
 import com.BDD.Constant.Flatfile;
 import com.BDD.runner.Instance;
@@ -26,6 +28,7 @@ import cucumber.api.java.en.When;
 
 public class TerminalDetailsSteps extends Instance {
 
+	public Logger log = Logger.getLogger(TerminalDetailsSteps.class.getClass());
 	Config testConf = ConfigProvider.getConfig();
 	DBOperation db = new DBOperation();
 
@@ -50,7 +53,7 @@ public class TerminalDetailsSteps extends Instance {
 
 	@Given("^I want to update terminal details$")
 	public void i_want_to_update_terminal_details() {
-
+		log.info("this is log");
 		testBase.initiateTest();
 		testBase.setAPIEndpoint(Endpoint.POST_TERMINAL_DETAILS);
 		testBase.setHeader("Accept", "application/json");

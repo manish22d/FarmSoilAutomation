@@ -25,6 +25,7 @@ Feature: Post Terminal Details Functional Test
   #		| ATM 2      |
   #		| ATM 3      |
   #		| ATM 4      |
+    @manish
   Scenario Outline: User want to retrieved terminal related details
     Given I want to update terminal details
     And I want to updated request with terminal id

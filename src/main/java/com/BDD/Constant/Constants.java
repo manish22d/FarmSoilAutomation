@@ -8,22 +8,39 @@ package com.BDD.Constant;
  */
 public class Constants {
 
+	/**
+	 * Chrome Driver Path
+	 */
 	public static final String CHROME_DRIVER_PATH = System.getProperty("user.dir") + "/Drivers/chromedriver.exe";
+	/**
+	 * IE driver path
+	 */
 	public static final String INTERNET_EXPLORER_DRIVER_PATH = System.getProperty("user.dir")
 			+ "/Drivers/IEDriverServer.exe";
+	/**
+	 * Firefox driver path
+	 */
 	public static final String FIREFOX_DRIVER_PATH = System.getProperty("user.dir") + "/Drivers/geckodriver.exe";
 
+	/**
+	 * Page load time out quantity
+	 */
 	public static final long PAGE_LOAD_TIMEOUT = 30;
+
+	/**
+	 * quantity for Implicit wait
+	 */
 	public static final long IMPLICIT_WAIT = 15;
+
+	/**
+	 * quantity for explicit wait
+	 */
 	public static final long EXPLICIT_WAIT = 15;
 
-	public static final int SHORT_WAIT = 3000;
-	public static final int MEDIUM_WAIT = 6000;
-	public static final int LONG_WAIT = 10000;
 	/**
 	 * path of excel sheet
 	 */
-	public static final String TEST_DATA_SHEET_PATH = "src\\test\\resources\\testdataSheet\\testdata.xlsx";
+	public static final String TEST_DATA_SHEET_PATH = "src\\test\\resources\\testdataSheet\\testdata1.xlsx";
 	/**
 	 * path of config property
 	 */

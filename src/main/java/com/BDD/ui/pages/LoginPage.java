@@ -9,6 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.BDD.Constant.Constants;
 import com.BDD.testBase.BaseUI;
 
+/**
+ * Page Class for Login page
+ * 
+ * @author Manish
+ *
+ */
 public class LoginPage extends BaseUI {
 
 	@FindBy(id = "gwt-debug-j_username")
@@ -24,6 +30,13 @@ public class LoginPage extends BaseUI {
 		PageFactory.initElements(driver, this);
 	}
 
+	/**
+	 * perfroms login operation on application
+	 * 
+	 * @param userName
+	 * @param pwd
+	 * @return
+	 */
 	public DashboardPage performLogin(String userName, String pwd) {
 		new WebDriverWait(driver, Constants.EXPLICIT_WAIT).until(ExpectedConditions.elementToBeClickable(userID));
 		userID.sendKeys(userName);

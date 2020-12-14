@@ -1,12 +1,22 @@
 package com.BDD.listerners;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
+/**
+ * This Method is used to generate console logs for every UI automation related
+ * operation
+ * 
+ * @author Manish
+ *
+ */
 public class WebEventListener implements WebDriverEventListener {
+
+	public static Logger log = Logger.getLogger(WebEventListener.class.getClass());
 
 	public void beforeNavigateTo(String url, WebDriver driver) {
 		System.out.println("Before navigating to: '" + url + "'");
@@ -33,6 +43,7 @@ public class WebEventListener implements WebDriverEventListener {
 	}
 
 	public void beforeNavigateBack(WebDriver driver) {
+		log.info("navigation logs");
 		System.out.println("Navigating Back to Previous Page");
 	}
 

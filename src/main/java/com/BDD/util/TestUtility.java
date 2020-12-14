@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -29,6 +30,7 @@ public class TestUtility {
 	public static Workbook book;
 	public static Sheet sheet;
 	public static Properties property;
+	public static Logger log = Logger.getLogger(TestUtility.class.getClass());
 
 	/**
 	 * reads excel sheet and return map form of selected data
@@ -40,11 +42,10 @@ public class TestUtility {
 		FileInputStream file = null;
 		try {
 			file = new FileInputStream(Constants.TEST_DATA_SHEET_PATH);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		try {
 			book = WorkbookFactory.create(file);
+		} catch (FileNotFoundException e) {
+			log.error("excel file was not found at -> " + Constants.TEST_DATA_SHEET_PATH);
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -65,12 +66,19 @@ public class TestUtility {
 		return data;
 	}
 
+	/**
+	 * Read excel data for given terminal id
+	 * 
+	 * @param terminalid
+	 * @return
+	 */
 	public static HashMap<String, List<String>> getTerminalDetailsData(String terminalid) {
 		FileInputStream file = null;
 		try {
 			file = new FileInputStream(Constants.TEST_DATA_SHEET_PATH);
 			book = WorkbookFactory.create(file);
 		} catch (FileNotFoundException e) {
+			log.error("excel file was not found at -> " + Constants.TEST_DATA_SHEET_PATH);
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -87,8 +95,8 @@ public class TestUtility {
 			final Integer innerRow = new Integer(row);
 			if (sheet.getRow(row).getCell(0).toString().equals(terminalid)) {
 				keys.forEach(key -> {
-					System.out.println("loop for -> "+key);
-					
+					System.out.println("loop for -> " + key);
+
 					for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
 						if (sheet.getRow(0).getCell(i).toString().equals(key)
 								&& !sheet.getRow(innerRow).getCell(i).toString().equals("-")) {
@@ -124,13 +132,20 @@ public class TestUtility {
 		return value;
 	}
 
-	// Set Date For Log4J.
+	/**
+	 * Set date for log4j
+	 */
 	public static void setDateForLog4j() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("_ddMMyyyy_HHmmss");
 		System.setProperty("current_date", dateFormat.format(new Date()));
 		PropertyConfigurator.configure("./src/main/resources/log4j.properties");
 	}
 
+	/**
+	 * method to get date
+	 * 
+	 * @return
+	 */
 	public static String getDate() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("_ddMMyyyy_HHmmss");
 		return dateFormat.format(new Date());

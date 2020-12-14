@@ -3,9 +3,9 @@ package com.BDD.testBase;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,6 +19,12 @@ import com.BDD.util.TestUtility;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
+/**
+ * This class is used to do intial set up for UI automation
+ * 
+ * @author Manish
+ * 
+ */
 public class BaseUI {
 
 	public static WebDriver driver;
@@ -27,9 +33,14 @@ public class BaseUI {
 	public static ExtentReports extent;
 	public static ExtentTest extentTest;
 	public static WebEventListener eventListener;
+	public static Logger log = Logger.getLogger(BaseUI.class.getClass());
 
+	/**
+	 * Call method for intial set-up before UI automation
+	 */
 	public static void initialization() {
 		String broswerName = TestUtility.getConfigProperty("Browser");
+		log.info("launching " + broswerName + " browser");
 		System.out.println(broswerName);
 
 		if (broswerName.equals("Chrome")) {
