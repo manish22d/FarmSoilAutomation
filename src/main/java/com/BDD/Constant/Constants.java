@@ -40,7 +40,7 @@ public class Constants {
 	/**
 	 * path of excel sheet
 	 */
-	public static final String TEST_DATA_SHEET_PATH = "src\\test\\resources\\testdataSheet\\testdata1.xlsx";
+	public static final String TEST_DATA_SHEET_PATH = "src\\test\\resources\\testdataSheet\\testdata.xlsx";
 	/**
 	 * path of config property
 	 */

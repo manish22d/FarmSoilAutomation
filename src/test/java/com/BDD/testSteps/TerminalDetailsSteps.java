@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.BDD.APIs.GetTerminalDetails;
 import com.BDD.Constant.Endpoint;
 import com.BDD.Constant.Flatfile;
 import com.BDD.runner.Instance;
@@ -31,6 +32,7 @@ public class TerminalDetailsSteps extends Instance {
 	public Logger log = Logger.getLogger(TerminalDetailsSteps.class.getClass());
 	Config testConf = ConfigProvider.getConfig();
 	DBOperation db = new DBOperation();
+	GetTerminalDetails terminalDetails = new GetTerminalDetails();
 
 	@Given("^I want to retrieve terminal details$")
 	public void i_want_to_retrieve_terminal_details() {
@@ -83,7 +85,7 @@ public class TerminalDetailsSteps extends Instance {
 	public void i_want_to_updated_request_with_terminal_details_from_excel_sheet(List<String> terminal) {
 		Map<String, List<String>> td = TestUtility.getTerminalDetailsData(terminal.get(0));
 
-		System.out.println(td);
+		System.out.println(td.get("Instance_id").get(1));
 	}
 
 	@When("^i want to post request$")
@@ -93,6 +95,7 @@ public class TerminalDetailsSteps extends Instance {
 
 	@Then("^verify all coressponding device id displayed in response$")
 	public void verify_all_coressponding_device_id_displayed_in_response(List<String> terminalId) {
+		Map<String, List<String>> td = TestUtility.getTerminalDetailsData(terminalId.get(0));
 		JsonArray terminalArray = JsonParser.parseString(testBase.getResponseString()).getAsJsonObject()
 				.getAsJsonArray("terminals");
 
@@ -100,8 +103,9 @@ public class TerminalDetailsSteps extends Instance {
 		terminalArray.get(0).getAsJsonObject().getAsJsonArray("devices")
 				.forEach(terminal -> devicesInResponse.add(terminal.getAsJsonObject().get("deviceId").getAsString()));
 
-		List<String> expectedDevices = testConf.getConfig("terminals").getConfig("devices")
-				.getStringList(terminalId.get(0).replace(" ", ""));
+//		List<String> expectedDevices = testConf.getConfig("terminals").getConfig("devices")
+//				.getStringList(terminalId.get(0).replace(" ", ""));
+		List<String> expectedDevices = td.get("deviceId");
 		assertThat(devicesInResponse, is(equalTo(expectedDevices)));
 	}
 
@@ -153,6 +157,17 @@ public class TerminalDetailsSteps extends Instance {
 				.getAsJsonObject();
 		assertThat(terminal.getAsJsonObject().get("deviceId").getAsString(),
 				is(equalTo(db.getTerminalDetails(terminalId.get(0)))));
+	}
+
+	@Then("^Verify terminal details got updated$")
+	public void verify_terminal_details_got_updated(List<String> terminalId) {
+		terminalDetails.submitRequest(terminalId.get(0));
+		
+		Map<String, List<String>> excelData = TestUtility.getTerminalDetailsData(terminalId.get(0));
+		List<String> expectedDevicesInResponse = excelData.get("Instance_id");
+
+		List<String> actualDevicesInResponse = terminalDetails.getDeviceId();
+		assertThat(actualDevicesInResponse, is(equalTo(expectedDevicesInResponse)));
 
 	}
 

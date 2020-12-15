@@ -1,2 +1,7 @@
-2020-12-15 00:51:40,629  INFO [main] Class:34 - launching Chrome browser
-2020-12-15 00:52:24,060  INFO [main] Class:55 - this is log
+2020-12-15 20:04:45,538  INFO [main] Class:56 - this is log
+2020-12-15 20:04:45,540  INFO [main] Class:20 - initialized baseClass
+2020-12-15 20:04:45,912  INFO [main] Class:25 - Setting Endpoint to : /terminal
+2020-12-15 20:04:45,913  INFO [main] Class:30 - updating header  : Accept with application/json
+2020-12-15 20:04:45,914  INFO [main] Class:20 - initialized baseClass
+2020-12-15 20:04:45,914  INFO [main] Class:25 - Setting Endpoint to : AuthToken
+2020-12-15 20:04:45,914  INFO [main] Class:30 - updating header  : manish with value

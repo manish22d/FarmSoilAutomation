@@ -1,8 +1,8 @@
 Feature: Post Terminal Details Functional Test
   I want insert terminal id in db
 
-  Background: 
-    Given I want to retrieve terminal details from UI
+  #Background: 
+    #Given I want to retrieve terminal details from UI
 
   @manish
   Scenario Outline: User want to retrieved terminal related details
