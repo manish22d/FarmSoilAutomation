@@ -26,10 +26,33 @@ public class Request {
 	 * @param path
 	 * @param value
 	 */
-	public void updateJsonRequest(String path, String value) {
-
+	public void updateJsonRequest(String path, Object value) {
 		DocumentContext jsonContext = JsonPath.parse(requestPayload);
 		jsonContext.set(path, value);
+		setRequestPayload(jsonContext.jsonString());
+	}
+
+	/**
+	 * Convenience method to delete value in json using JsonPath
+	 * 
+	 * @param path
+	 */
+	public void deleteNodeInJsonRequest(String path) {
+		DocumentContext jsonContext = JsonPath.parse(requestPayload);
+		jsonContext.delete(path);
+		setRequestPayload(jsonContext.jsonString());
+	}
+
+	/**
+	 * Convenience method to add a node with value in json using JsonPath
+	 * 
+	 * @param path
+	 * @param key
+	 * @param value
+	 */
+	public void addNodeInJsonRequest(String path, String key, Object value) {
+		DocumentContext jsonContext = JsonPath.parse(requestPayload);
+		jsonContext.put(path, key, value);
 		setRequestPayload(jsonContext.jsonString());
 	}
 

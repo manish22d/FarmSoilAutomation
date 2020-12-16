@@ -1,0 +1,15 @@
+{
+	"statusCodes": [
+		{
+			"statusCode": "IDC01S1",
+			"deviceInstance": "1",
+			"deviceName": "Recycler",
+			"deviceState": "1",
+			"deviceDescription": "",
+			"deviceVendorIdentity": "",
+			"subDeviceName": "",
+			"subDeviceState": "",
+			"subDeviceDescription": ""
+		}
+	]
+}

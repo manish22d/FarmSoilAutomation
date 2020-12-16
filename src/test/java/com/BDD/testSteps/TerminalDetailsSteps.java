@@ -60,7 +60,18 @@ public class TerminalDetailsSteps extends Instance {
 		testBase.setAPIEndpoint(Endpoint.POST_TERMINAL_DETAILS);
 		testBase.setHeader("Accept", "application/json");
 //		testBase.setHeader("Content-Type", "application/json");
-		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
+//		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
+		requestPayload.setRequestPayload(file.readJson(Flatfile.TERMINAL_REQUEST));
+		System.out.println(requestPayload.getRequestPayload());
+	}
+	
+	@Given("^I want to check status$")
+	public void i_want_to_check_status() throws Throwable {
+		testBase.initiateTest();
+		testBase.setAPIEndpoint(Endpoint.POST_TERMINAL_DETAILS);
+		testBase.setHeader("Accept", "application/json");
+//		testBase.setHeader("Content-Type", "application/json");
+//		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
 		requestPayload.setRequestPayload(file.readJson(Flatfile.TERMINAL_REQUEST));
 		System.out.println(requestPayload.getRequestPayload());
 	}
@@ -76,16 +87,33 @@ public class TerminalDetailsSteps extends Instance {
 	@Given("^I want to updated request with terminal id from excel sheet$")
 	public void i_want_to_updated_request_with_terminal_id_from_excel_sheet(List<String> terminal) throws Throwable {
 		Map<String, String> td = TestUtility.getTestData(terminal.get(0));
+
 		System.out.println(td);
-		requestPayload.updateJsonRequest("terminalid", terminal.get(0));
+		System.out.println(requestPayload.getRequestPayload());
+		requestPayload.updateJsonRequest("$.terminalid", terminal.get(0));
 		requestPayload.updateJsonRequest("$.states[0].uri", td.get("uri"));
+		td.remove("uri");
+		requestPayload.deleteNodeInJsonRequest("$.states[0].properties");
+
+		JsonObject request = JsonParser.parseString(requestPayload.getRequestPayload()).getAsJsonObject();
+		JsonArray properties = new JsonArray();
+		td.entrySet().forEach(property -> {
+			JsonObject prop = new JsonObject();
+			prop.addProperty("key", property.getKey());
+			prop.addProperty("value", property.getValue());
+			properties.add(prop);
+		});
+		request.getAsJsonArray("states").get(0).getAsJsonObject().add("properties", properties);
+		System.out.println(request);
+		requestPayload.setRequestPayload(request.toString());
+		System.out.println(requestPayload.getRequestPayload());
 	}
 
 	@Given("^I want to updated request with terminal details from excel sheet$")
 	public void i_want_to_updated_request_with_terminal_details_from_excel_sheet(List<String> terminal) {
 		Map<String, List<String>> td = TestUtility.getTerminalDetailsData(terminal.get(0));
 
-		System.out.println(td.get("Instance_id").get(1));
+		System.out.println(terminal.get(0)+" -> "+td.get("Sub_device_name"));
 	}
 
 	@When("^i want to post request$")
@@ -162,13 +190,12 @@ public class TerminalDetailsSteps extends Instance {
 	@Then("^Verify terminal details got updated$")
 	public void verify_terminal_details_got_updated(List<String> terminalId) {
 		terminalDetails.submitRequest(terminalId.get(0));
-		
+
 		Map<String, List<String>> excelData = TestUtility.getTerminalDetailsData(terminalId.get(0));
 		List<String> expectedDevicesInResponse = excelData.get("Instance_id");
 
 		List<String> actualDevicesInResponse = terminalDetails.getDeviceId();
 		assertThat(actualDevicesInResponse, is(equalTo(expectedDevicesInResponse)));
-
 	}
 
 }

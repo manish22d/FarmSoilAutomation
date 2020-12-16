@@ -86,23 +86,21 @@ public class TestUtility {
 
 		sheet = book.getSheetAt(1);
 		HashMap<String, List<String>> data = new HashMap<String, List<String>>();
-		List<String> records = new ArrayList<String>();
-		
-		for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-			data.put(sheet.getRow(0).getCell(i).toString(), records);
+		for (int i = 1; i < sheet.getRow(0).getLastCellNum(); i++) {
+			data.put(sheet.getRow(0).getCell(i).toString(), new ArrayList<String>());
 		}
-		System.out.println("initialisation -> "+data);
+		System.out.println("initialisation -> " + data);
 		List<String> keys = new ArrayList<String>(data.keySet());
-		
+
 		for (int row = 0; row < sheet.getLastRowNum() + 1; row++) {
 			final Integer innerRow = new Integer(row);
 			if (sheet.getRow(row).getCell(0).toString().equals(terminalid)) {
 				keys.forEach(key -> {
-					for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
+					for (int i = 1; i < sheet.getRow(0).getLastCellNum(); i++) {
 						if (sheet.getRow(0).getCell(i).toString().equals(key)
 								&& !sheet.getRow(innerRow).getCell(i).toString().equals("-")) {
 							String item = sheet.getRow(innerRow).getCell(i).toString();
-							
+
 							List<String> test = new ArrayList<String>();
 							test.addAll(data.get(key));
 							test.add(item);
@@ -112,6 +110,7 @@ public class TestUtility {
 				});
 			}
 		}
+		System.out.println(data);
 		return data;
 	}
 

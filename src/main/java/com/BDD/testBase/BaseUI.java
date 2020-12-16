@@ -52,6 +52,8 @@ public class BaseUI {
 			prefs.put("credentials_enable_service", false);
 			prefs.put("profile.password_manager_enabled", false);
 			chromeOptions.setExperimentalOption("prefs", prefs);
+			chromeOptions.setHeadless(false);
+//			chromeOptions.addArguments("--window-size=1920,1080");
 
 			System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_PATH);
 			driver = new ChromeDriver(chromeOptions);
