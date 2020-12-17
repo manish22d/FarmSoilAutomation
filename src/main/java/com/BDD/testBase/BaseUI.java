@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -62,7 +63,9 @@ public class BaseUI {
 			driver = new InternetExplorerDriver();
 		} else if (broswerName.equals("Firefox")) {
 			System.setProperty("webdriver.gecko.driver", Constants.FIREFOX_DRIVER_PATH);
-			driver = new FirefoxDriver();
+			FirefoxOptions options = new FirefoxOptions();
+			options.setHeadless(false);
+			driver = new FirefoxDriver(options);
 		} else {
 			System.out.println("Path of Driver Executable is not Set for any Browser");
 		}

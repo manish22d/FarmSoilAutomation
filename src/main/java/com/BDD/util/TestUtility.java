@@ -1,5 +1,6 @@
 package com.BDD.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,11 +12,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 import com.BDD.Constant.Constants;
 
@@ -53,12 +58,10 @@ public class TestUtility {
 		sheet = book.getSheetAt(0);
 		HashMap<String, String> data = new HashMap<String, String>();
 
-		for (int i = 0; i < sheet.getLastRowNum() + 1; i++) {
+		for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
 			for (int k = 1; k < sheet.getRow(0).getLastCellNum(); k++) {
 				if (sheet.getRow(0).getCell(k).toString().equals(terminalid)
 						&& !sheet.getRow(i).getCell(k).getStringCellValue().equals("-")) {
-					System.out.println(
-							sheet.getRow(i).getCell(0).toString() + " " + sheet.getRow(i).getCell(k).toString());
 					data.put(sheet.getRow(i).getCell(0).toString(), sheet.getRow(i).getCell(k).toString());
 				}
 			}
@@ -149,5 +152,18 @@ public class TestUtility {
 	public static String getDate() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("_ddMMyyyy_HHmmss");
 		return dateFormat.format(new Date());
+	}
+	
+	/**
+	 * Take screenshot
+	 * @return
+	 * @throws IOException
+	 */
+	public static File takeScreenshotAtEndOfTest(WebDriver driver) throws IOException {
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String currentDir = System.getProperty("user.dir");
+		File screenshot = new File(currentDir + "/Screenshots/" + System.currentTimeMillis() + ".png");
+		FileUtils.copyFile(scrFile, screenshot);
+		return screenshot;
 	}
 }

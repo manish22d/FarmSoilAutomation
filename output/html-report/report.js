@@ -44,30 +44,30 @@ formatter.step({
     {
       "line": 11,
       "value": "#| \u003cterminalId\u003e |"
-    },
-    {
-      "line": 12,
-      "value": "#And I want to updated request with terminal id from excel sheet"
-    },
-    {
-      "line": 13,
-      "value": "#| \u003cterminalId\u003e |"
     }
   ],
-  "line": 14,
-  "name": "I want to updated request with terminal details from excel sheet",
+  "line": 12,
+  "name": "I want to updated request with terminal id from excel sheet",
   "rows": [
     {
       "cells": [
         "\u003cterminalId\u003e"
       ],
-      "line": 15
+      "line": 13
     }
   ],
   "keyword": "And "
 });
 formatter.examples({
   "comments": [
+    {
+      "line": 14,
+      "value": "#And I want to updated request with terminal details from excel sheet"
+    },
+    {
+      "line": 15,
+      "value": "#| \u003cterminalId\u003e |"
+    },
     {
       "line": 16,
       "value": "#When i want to post request"
@@ -142,18 +142,10 @@ formatter.step({
     {
       "line": 11,
       "value": "#| \u003cterminalId\u003e |"
-    },
-    {
-      "line": 12,
-      "value": "#And I want to updated request with terminal id from excel sheet"
-    },
-    {
-      "line": 13,
-      "value": "#| \u003cterminalId\u003e |"
     }
   ],
-  "line": 14,
-  "name": "I want to updated request with terminal details from excel sheet",
+  "line": 12,
+  "name": "I want to updated request with terminal id from excel sheet",
   "matchedColumns": [
     0
   ],
@@ -162,7 +154,7 @@ formatter.step({
       "cells": [
         "ATM 1"
       ],
-      "line": 15
+      "line": 13
     }
   ],
   "keyword": "And "
@@ -171,14 +163,14 @@ formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_update_terminal_details()"
 });
 formatter.result({
-  "duration": 591192900,
+  "duration": 735007000,
   "status": "passed"
 });
 formatter.match({
-  "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_details_from_excel_sheet(String\u003e)"
+  "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_id_from_excel_sheet(String\u003e)"
 });
 formatter.result({
-  "duration": 468738200,
+  "duration": 705190000,
   "status": "passed"
 });
 formatter.scenario({
@@ -209,18 +201,10 @@ formatter.step({
     {
       "line": 11,
       "value": "#| \u003cterminalId\u003e |"
-    },
-    {
-      "line": 12,
-      "value": "#And I want to updated request with terminal id from excel sheet"
-    },
-    {
-      "line": 13,
-      "value": "#| \u003cterminalId\u003e |"
     }
   ],
-  "line": 14,
-  "name": "I want to updated request with terminal details from excel sheet",
+  "line": 12,
+  "name": "I want to updated request with terminal id from excel sheet",
   "matchedColumns": [
     0
   ],
@@ -229,7 +213,7 @@ formatter.step({
       "cells": [
         "ATM 2"
       ],
-      "line": 15
+      "line": 13
     }
   ],
   "keyword": "And "
@@ -238,14 +222,14 @@ formatter.match({
   "location": "TerminalDetailsSteps.i_want_to_update_terminal_details()"
 });
 formatter.result({
-  "duration": 5539500,
+  "duration": 9442200,
   "status": "passed"
 });
 formatter.match({
-  "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_details_from_excel_sheet(String\u003e)"
+  "location": "TerminalDetailsSteps.i_want_to_updated_request_with_terminal_id_from_excel_sheet(String\u003e)"
 });
 formatter.result({
-  "duration": 42459900,
+  "duration": 41261400,
   "status": "passed"
 });
 });
