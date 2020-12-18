@@ -10,11 +10,20 @@ import com.BDD.util.TestUtility;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
+/**
+ * Test step for UI related test steps
+ * 
+ * @author Manish
+ *
+ */
 public class UITestSteps extends Instance {
 
 	LoginPage loginPage;
 	DashboardPage dashboardPage;
 
+	/**
+	 * initial setup of browser, in order to start test
+	 */
 	@Given("^I want to retrieve terminal details from UI$")
 	public void i_want_to_retrieve_terminal_details_UI() {
 		if (driver == null) {

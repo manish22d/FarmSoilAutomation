@@ -2,7 +2,6 @@ package com.BDD.APIs;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import com.BDD.Constant.Endpoint;
@@ -12,11 +11,22 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+/**
+ * Implementation to call get Terminal details API
+ * 
+ * @author Manish
+ *
+ */
 public class GetTerminalDetails {
 
 	JsonObject response;
 	TestBase testBase;
 
+	/**
+	 * submit get request for get Terminal Details API
+	 * 
+	 * @param termialID
+	 */
 	public void submitRequest(String termialID) {
 		testBase = new TestBase();
 		testBase.initiateTest();
@@ -28,14 +38,27 @@ public class GetTerminalDetails {
 		response = JsonParser.parseString(testBase.getResponseString()).getAsJsonObject();
 	}
 
+	/**
+	 * method to get list of device id in response
+	 * 
+	 * @return
+	 */
 	public List<String> getDeviceId() {
 		JsonArray terminalArray = response.getAsJsonArray("terminals");
 		List<String> devicesInResponse = new ArrayList<String>();
-		terminalArray.get(0).getAsJsonObject().getAsJsonArray("devices")
-				.forEach(terminal -> devicesInResponse.add(terminal.getAsJsonObject().get("deviceId").getAsString()));
+		if (!terminalArray.get(0).getAsJsonObject().get("devices").isJsonNull()) {
+			terminalArray.get(0).getAsJsonObject().getAsJsonArray("devices").forEach(
+					terminal -> devicesInResponse.add(terminal.getAsJsonObject().get("deviceId").getAsString()));
+		}
 		return devicesInResponse;
 	}
 
+	/**
+	 * method to get list of sub devices specific to device id
+	 * 
+	 * @param deviceID
+	 * @return
+	 */
 	public List<String> getSubDeviceId(String deviceID) {
 		JsonArray terminalArray = response.getAsJsonArray("terminals");
 		List<String> subDevicesInResponse = new ArrayList<String>();
@@ -43,12 +66,11 @@ public class GetTerminalDetails {
 		JsonObject selectedDevice = (JsonObject) StreamSupport.stream(devices.spliterator(), false)
 				.filter(device -> device.getAsJsonObject().get("deviceId").getAsString().equals(deviceID)).findFirst()
 				.orElse(null);
-		JsonArray subdevices = selectedDevice.getAsJsonArray("subDevices");
-		if (!subdevices.isJsonNull()) {
+		if (!selectedDevice.get("subDevices").isJsonNull()) {
+			JsonArray subdevices = selectedDevice.getAsJsonArray("subDevices");
 			subdevices.forEach(
 					terminal -> subDevicesInResponse.add(terminal.getAsJsonObject().get("deviceId").getAsString()));
 		}
 		return subDevicesInResponse;
 	}
-
 }

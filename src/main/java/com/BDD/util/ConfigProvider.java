@@ -10,7 +10,10 @@ import com.typesafe.config.ConfigFactory;
  *
  */
 public class ConfigProvider {
-
+	/**
+	 * method to initialise and load config file 
+	 * @return
+	 */
 	public static Config getConfig() {
 		return ConfigFactory.load("config/application.conf");
 	}

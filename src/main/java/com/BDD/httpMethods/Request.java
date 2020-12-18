@@ -12,10 +12,20 @@ import com.jayway.jsonpath.JsonPath;
 public class Request {
 	public String requestPayload;
 
+	/**
+	 * setter method for requestPAyload
+	 * 
+	 * @param requestPayload
+	 */
 	public void setRequestPayload(String requestPayload) {
 		this.requestPayload = requestPayload;
 	}
 
+	/**
+	 * return request as string
+	 * 
+	 * @return
+	 */
 	public String getRequestPayload() {
 		return requestPayload;
 	}

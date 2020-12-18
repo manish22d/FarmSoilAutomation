@@ -35,6 +35,9 @@ public class BaseClass {
 		RestAssured.baseURI = System.getenv("URL");
 	}
 
+	/**
+	 * start point to make a request
+	 */
 	public void initiateRequest() {
 		request = RestAssured.given();
 		request.log().all();

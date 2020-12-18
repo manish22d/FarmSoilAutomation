@@ -2,14 +2,10 @@ package com.BDD.util;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -17,7 +13,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -37,85 +32,7 @@ public class TestUtility {
 	public static Properties property;
 	public static Logger log = Logger.getLogger(TestUtility.class.getClass());
 
-	/**
-	 * reads excel sheet and return map form of selected data
-	 * 
-	 * @param terminalid
-	 * @return
-	 */
-	public static HashMap<String, String> getTestData(String terminalid) {
-		FileInputStream file = null;
-		try {
-			file = new FileInputStream(Constants.TEST_DATA_SHEET_PATH);
-			book = WorkbookFactory.create(file);
-		} catch (FileNotFoundException e) {
-			log.error("excel file was not found at -> " + Constants.TEST_DATA_SHEET_PATH);
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		sheet = book.getSheetAt(0);
-		HashMap<String, String> data = new HashMap<String, String>();
-
-		for (int i = 1; i < sheet.getLastRowNum() + 1; i++) {
-			for (int k = 1; k < sheet.getRow(0).getLastCellNum(); k++) {
-				if (sheet.getRow(0).getCell(k).toString().equals(terminalid)
-						&& !sheet.getRow(i).getCell(k).getStringCellValue().equals("-")) {
-					data.put(sheet.getRow(i).getCell(0).toString(), sheet.getRow(i).getCell(k).toString());
-				}
-			}
-		}
-		return data;
-	}
-
-	/**
-	 * Read excel data for given terminal id
-	 * 
-	 * @param terminalid
-	 * @return
-	 */
-	public static HashMap<String, List<String>> getTerminalDetailsData(String terminalid) {
-		FileInputStream file = null;
-		try {
-			file = new FileInputStream(Constants.TEST_DATA_SHEET_PATH);
-			book = WorkbookFactory.create(file);
-		} catch (FileNotFoundException e) {
-			log.error("excel file was not found at -> " + Constants.TEST_DATA_SHEET_PATH);
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		sheet = book.getSheetAt(1);
-		HashMap<String, List<String>> data = new HashMap<String, List<String>>();
-		for (int i = 1; i < sheet.getRow(0).getLastCellNum(); i++) {
-			data.put(sheet.getRow(0).getCell(i).toString(), new ArrayList<String>());
-		}
-		System.out.println("initialisation -> " + data);
-		List<String> keys = new ArrayList<String>(data.keySet());
-
-		for (int row = 0; row < sheet.getLastRowNum() + 1; row++) {
-			final Integer innerRow = new Integer(row);
-			if (sheet.getRow(row).getCell(0).toString().equals(terminalid)) {
-				keys.forEach(key -> {
-					for (int i = 1; i < sheet.getRow(0).getLastCellNum(); i++) {
-						if (sheet.getRow(0).getCell(i).toString().equals(key)
-								&& !sheet.getRow(innerRow).getCell(i).toString().equals("-")) {
-							String item = sheet.getRow(innerRow).getCell(i).toString();
-
-							List<String> test = new ArrayList<String>();
-							test.addAll(data.get(key));
-							test.add(item);
-							data.put(key, test);
-						}
-					}
-				});
-			}
-		}
-		System.out.println(data);
-		return data;
-	}
+	
 
 	/**
 	 * read config property file return value of given key

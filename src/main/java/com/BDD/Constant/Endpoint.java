@@ -15,4 +15,9 @@ public class Endpoint {
 	 * endpoint for post ternimal details
 	 */
 	public static String POST_TERMINAL_DETAILS = "/terminal";
+	
+	/**
+	 * endpoint for post status code details
+	 */
+	public static String POST_STATUS_CODES = "/status";
 }

@@ -1,8 +1,12 @@
-2020-12-17 23:54:09,240  INFO [main] Class:58 - this is log
-2020-12-17 23:54:09,242  INFO [main] Class:20 - initialized baseClass
-2020-12-17 23:54:09,660  INFO [main] Class:25 - Setting Endpoint to : /terminal
-2020-12-17 23:54:09,660  INFO [main] Class:30 - updating header  : Accept with application/json
-2020-12-17 23:54:10,392  INFO [main] Class:58 - this is log
-2020-12-17 23:54:10,393  INFO [main] Class:20 - initialized baseClass
-2020-12-17 23:54:10,393  INFO [main] Class:25 - Setting Endpoint to : /terminal
-2020-12-17 23:54:10,394  INFO [main] Class:30 - updating header  : Accept with application/json
+2020-12-19 01:22:59,911  INFO [main] Class:20 - initialized baseClass
+2020-12-19 01:23:00,247  INFO [main] Class:25 - Setting Endpoint to : /status
+2020-12-19 01:23:00,247  INFO [main] Class:30 - updating header  : Accept with application/json
+2020-12-19 01:23:02,593  INFO [main] Class:20 - initialized baseClass
+2020-12-19 01:23:02,594  INFO [main] Class:25 - Setting Endpoint to : /status
+2020-12-19 01:23:02,595  INFO [main] Class:30 - updating header  : Accept with application/json
+2020-12-19 01:23:03,432  INFO [main] Class:20 - initialized baseClass
+2020-12-19 01:23:03,432  INFO [main] Class:25 - Setting Endpoint to : /status
+2020-12-19 01:23:03,433  INFO [main] Class:30 - updating header  : Accept with application/json
+2020-12-19 01:23:04,287  INFO [main] Class:20 - initialized baseClass
+2020-12-19 01:23:04,288  INFO [main] Class:25 - Setting Endpoint to : /status
+2020-12-19 01:23:04,288  INFO [main] Class:30 - updating header  : Accept with application/json

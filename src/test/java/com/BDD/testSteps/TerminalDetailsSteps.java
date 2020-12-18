@@ -17,7 +17,6 @@ import com.BDD.runner.Instance;
 import com.BDD.util.ConfigProvider;
 import com.BDD.util.DBOperation;
 import com.BDD.util.GenerateToken;
-import com.BDD.util.TestUtility;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -36,7 +35,6 @@ public class TerminalDetailsSteps extends Instance {
 
 	@Given("^I want to retrieve terminal details$")
 	public void i_want_to_retrieve_terminal_details() {
-
 		testBase.initiateTest();
 		testBase.setAPIEndpoint(Endpoint.GET_TERMINAL_DETAILS);
 		testBase.setHeader("Accept", "application/json");
@@ -62,9 +60,17 @@ public class TerminalDetailsSteps extends Instance {
 //		testBase.setHeader("Content-Type", "application/json");
 //		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
 		requestPayload.setRequestPayload(file.readJson(Flatfile.TERMINAL_REQUEST));
-		System.out.println(requestPayload.getRequestPayload());
 	}
-	
+
+	@Given("^I want to get status of different status codes$")
+	public void i_want_to_get_status_of_different_status_codes() {
+		testBase.initiateTest();
+		testBase.setAPIEndpoint(Endpoint.POST_STATUS_CODES);
+		testBase.setHeader("Accept", "application/json");
+//		testBase.setHeader("Content-Type", "application/json");
+//		testBase.setHeader("Authorization", GenerateToken.getAuthToken());
+		requestPayload.setRequestPayload(file.readJson(Flatfile.STATUS_REQUEST));
+	}
 
 	@Given("^I want to updated request with terminal id$")
 	public void i_want_to_updated_request_with_terminal_id(List<String> terminal) {
@@ -76,10 +82,8 @@ public class TerminalDetailsSteps extends Instance {
 
 	@Given("^I want to updated request with terminal id from excel sheet$")
 	public void i_want_to_updated_request_with_terminal_id_from_excel_sheet(List<String> terminal) throws Throwable {
-		Map<String, String> td = TestUtility.getTestData(terminal.get(0));
+		Map<String, String> td = excelUtility.getTestData(terminal.get(0));
 
-		System.out.println(td);
-		System.out.println(requestPayload.getRequestPayload());
 		requestPayload.updateJsonRequest("$.terminalid", terminal.get(0));
 		requestPayload.updateJsonRequest("$.states[0].uri", td.get("uri"));
 		td.remove("uri");
@@ -99,11 +103,27 @@ public class TerminalDetailsSteps extends Instance {
 		System.out.println(requestPayload.getRequestPayload());
 	}
 
+	@Given("^I want to updated request with status codes$")
+	public void i_want_to_updated_request_with_status_codes(List<String> statusIdentifier) {
+		List<String> listOfCodes = ConfigProvider.getConfig().getConfig("statusCodes")
+				.getStringList(statusIdentifier.get(0));
+		JsonObject request = new JsonObject();
+		JsonArray statusCodes = new JsonArray();
+		listOfCodes.forEach(code -> {
+			JsonObject status = new JsonObject();
+			excelUtility.getStatusDetails(code).entrySet()
+					.forEach(entry -> status.addProperty(entry.getKey(), entry.getValue()));
+			statusCodes.add(status);
+		});
+		request.add("statusCodes", statusCodes);
+		requestPayload.setRequestPayload(request.toString());
+	}
+
 	@Given("^I want to updated request with terminal details from excel sheet$")
 	public void i_want_to_updated_request_with_terminal_details_from_excel_sheet(List<String> terminal) {
-		Map<String, List<String>> td = TestUtility.getTerminalDetailsData(terminal.get(0));
+		Map<String, List<String>> td = excelUtility.getTerminalDetailsData(terminal.get(0));
 
-		System.out.println(terminal.get(0)+" -> "+td.get("Sub_device_name"));
+		System.out.println(terminal.get(0) + " -> " + td.get("deviceId"));
 	}
 
 	@When("^i want to post request$")
@@ -113,7 +133,7 @@ public class TerminalDetailsSteps extends Instance {
 
 	@Then("^verify all coressponding device id displayed in response$")
 	public void verify_all_coressponding_device_id_displayed_in_response(List<String> terminalId) {
-		Map<String, List<String>> td = TestUtility.getTerminalDetailsData(terminalId.get(0));
+		Map<String, List<String>> td = excelUtility.getTerminalDetailsData(terminalId.get(0));
 		JsonArray terminalArray = JsonParser.parseString(testBase.getResponseString()).getAsJsonObject()
 				.getAsJsonArray("terminals");
 
@@ -155,7 +175,6 @@ public class TerminalDetailsSteps extends Instance {
 
 		// another way - Lambda expression and forEach
 		devices.forEach(devicee -> {
-
 			List<String> expectedSubDevices = testConf
 					.getStringList(devicee.getAsJsonObject().get("deviceId").getAsString().replace(" ", ""));
 			List<String> actualSubDevices = new ArrayList<String>();
@@ -181,7 +200,7 @@ public class TerminalDetailsSteps extends Instance {
 	public void verify_terminal_details_got_updated(List<String> terminalId) {
 		terminalDetails.submitRequest(terminalId.get(0));
 
-		Map<String, List<String>> excelData = TestUtility.getTerminalDetailsData(terminalId.get(0));
+		Map<String, List<String>> excelData = excelUtility.getTerminalDetailsData(terminalId.get(0));
 		List<String> expectedDevicesInResponse = excelData.get("Instance_id");
 
 		List<String> actualDevicesInResponse = terminalDetails.getDeviceId();
