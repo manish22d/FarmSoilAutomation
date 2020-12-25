@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -205,6 +206,20 @@ public class TerminalDetailsSteps extends Instance {
 
 		List<String> actualDevicesInResponse = terminalDetails.getDeviceId();
 		assertThat(actualDevicesInResponse, is(equalTo(expectedDevicesInResponse)));
+
+		JsonArray devices = JsonParser.parseString(testBase.getResponseString()).getAsJsonObject()
+				.getAsJsonArray("terminals").get(0).getAsJsonObject().getAsJsonArray("devices");
+		devices.forEach(device -> {
+			String deviceID = device.getAsJsonObject().get("deviceId").getAsString();
+			List<String> actualSubDevicesInResponse = terminalDetails.getSubDeviceId(deviceID);
+			List<String> expectedSubDevices = new ArrayList<String>();
+			for (int i = 0; i < excelData.get("subDevicesId").size(); i++) {
+				if (excelData.get("devicesId").get(i).equals(deviceID)) {
+					expectedSubDevices = Arrays.asList(excelData.get("subDevicesId").get(i).split("-"));
+				}
+			}
+			assertThat(actualSubDevicesInResponse, is(equalTo(expectedSubDevices)));
+		});
 	}
 
 }
