@@ -32,6 +32,11 @@ public class TerminalPage extends BaseUI {
 		PageFactory.initElements(driver, this);
 	}
 
+	/**
+	 * perform click on request terminal id
+	 * 
+	 * @param terminalId
+	 */
 	public void clickOnTerminal(String terminalId) {
 		new WebDriverWait(driver, Constants.EXPLICIT_WAIT).until(ExpectedConditions.visibilityOfAllElements(terminals));
 		terminals.stream().forEach(terminal -> System.out.println(terminal.getText()));
@@ -41,19 +46,35 @@ public class TerminalPage extends BaseUI {
 		act.moveToElement(terminalID).click().build().perform();
 	}
 
+	/**
+	 * check if any device is avialable for given terminal id
+	 * 
+	 * @return boolean
+	 */
 	public boolean isDevicesDisplayed() {
 		new WebDriverWait(driver, Constants.EXPLICIT_WAIT).until(ExpectedConditions.visibilityOf(terminalInfoSection));
 		return deviceListSection.isDisplayed();
 	}
 
+	/**
+	 * return list of devices under a terminal
+	 * 
+	 * @return
+	 */
 	public List<String> getListOfDevices() {
 		List<String> devices = new ArrayList<String>();
-//		deviceListSection.click();
+		deviceListSection.click();
 		new WebDriverWait(driver, Constants.EXPLICIT_WAIT).until(ExpectedConditions.visibilityOf(terminalInfoSection));
 		deviceList.stream().forEach(device -> devices.add(device.findElement(By.xpath("./tr[1]/td[1]")).getText()));
 		return devices;
 	}
 
+	/**
+	 * returns list of sub-devices under requested device id
+	 * 
+	 * @param deviceId
+	 * @return
+	 */
 	public List<String> getSubDevices(String deviceId) {
 		List<String> subDevices = new ArrayList<String>();
 		WebElement subDeviceEle = deviceList.stream()
@@ -65,6 +86,12 @@ public class TerminalPage extends BaseUI {
 		return subDevices;
 	}
 
+	/**
+	 * returns number of sub devices available under given device id
+	 * 
+	 * @param deviceId
+	 * @return
+	 */
 	public int getNumberOfSubDevices(String deviceId) {
 		return Integer.parseInt(deviceList.stream()
 				.filter(device -> device.findElement(By.xpath("./tr[1]/td[1]")).getText().contains(deviceId))
