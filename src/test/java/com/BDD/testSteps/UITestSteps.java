@@ -28,19 +28,25 @@ public class UITestSteps extends Instance {
 	 */
 	@Given("^I want to retrieve terminal details from UI$")
 	public void i_want_to_retrieve_terminal_details_UI() {
+		System.out.println("manis");
 		if (driver == null) {
 			initialization();
-			loginPage = new LoginPage();
-			dashboardPage = loginPage.performLogin(TestUtility.getConfigProperty("userName"),
-					TestUtility.getConfigProperty("password"));
-			terminal = dashboardPage.navigateToTerminal();
+//			loginPage = new LoginPage();
+//			dashboardPage = loginPage.performLogin(TestUtility.getConfigProperty("userName"),
+//					TestUtility.getConfigProperty("password"));
+//			terminal = dashboardPage.navigateToTerminal();
 
 		}
 	}
 
 	@Then("^verify all coressponding device id displayed correctly in UI$")
 	public void verify_all_coressponding_device_id_displayed_correctly_in_UI(List<String> terminalID) {
-		terminal.clickOnTerminal(terminalID.get(0));
+		terminal = new TerminalPage();
+//		terminal.clickOnTerminal(terminalID.get(0));
+		System.out.println(terminal.getListOfDevices());
+		System.out.println(terminal.getSubDevices("Card Reader"));
+		System.out.println(terminal.getNumberOfSubDevices("BIN"));
+		System.out.println(terminal.getNumberOfSubDevices("Printer"));
 	}
 
 }

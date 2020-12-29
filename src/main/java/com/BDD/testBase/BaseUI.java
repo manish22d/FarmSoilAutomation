@@ -73,7 +73,7 @@ public class BaseUI {
 		e_driver = new EventFiringWebDriver(driver);
 
 		eventListener = new WebEventListener();
-		e_driver.register(eventListener);
+//		e_driver.register(eventListener);
 		driver = e_driver;
 
 		driver.manage().window().maximize();

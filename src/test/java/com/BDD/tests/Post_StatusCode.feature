@@ -1,6 +1,5 @@
 Feature: Post Status codes Functional Test
 
-  @manish
   Scenario Outline: User want to retrieved status related details
     Given I want to get status of different status codes
     And I want to updated request with status codes
