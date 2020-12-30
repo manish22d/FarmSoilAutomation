@@ -63,9 +63,11 @@ public class TerminalPage extends BaseUI {
 	 */
 	public List<String> getListOfDevices() {
 		List<String> devices = new ArrayList<String>();
-		deviceListSection.click();
-		new WebDriverWait(driver, Constants.EXPLICIT_WAIT).until(ExpectedConditions.visibilityOf(terminalInfoSection));
-		deviceList.stream().forEach(device -> devices.add(device.findElement(By.xpath("./tr[1]/td[1]")).getText()));
+		if (isDevicesDisplayed()) {
+			deviceListSection.click();
+			deviceList.stream().forEach(device -> devices.add(device.findElement(By.xpath("./tr[1]/td[1]")).getText()
+					.replace("expand_less", "").replaceAll("\\r\\n|\\r|\\n", "")));
+		}
 		return devices;
 	}
 

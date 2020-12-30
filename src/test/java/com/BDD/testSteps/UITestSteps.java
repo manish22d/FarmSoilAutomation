@@ -6,7 +6,6 @@ import com.BDD.runner.Instance;
 import com.BDD.ui.pages.DashboardPage;
 import com.BDD.ui.pages.LoginPage;
 import com.BDD.ui.pages.TerminalPage;
-import com.BDD.util.TestUtility;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -28,7 +27,6 @@ public class UITestSteps extends Instance {
 	 */
 	@Given("^I want to retrieve terminal details from UI$")
 	public void i_want_to_retrieve_terminal_details_UI() {
-		System.out.println("manis");
 		if (driver == null) {
 			initialization();
 //			loginPage = new LoginPage();
@@ -42,7 +40,7 @@ public class UITestSteps extends Instance {
 	@Then("^verify all coressponding device id displayed correctly in UI$")
 	public void verify_all_coressponding_device_id_displayed_correctly_in_UI(List<String> terminalID) {
 		terminal = new TerminalPage();
-//		terminal.clickOnTerminal(terminalID.get(0));
+		terminal.clickOnTerminal(terminalID.get(0));
 		System.out.println(terminal.getListOfDevices());
 		System.out.println(terminal.getSubDevices("Card Reader"));
 		System.out.println(terminal.getNumberOfSubDevices("BIN"));

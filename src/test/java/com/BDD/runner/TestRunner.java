@@ -38,7 +38,7 @@ public class TestRunner extends Instance {
 		Reporter.setSystemInfo("os", "Windows 10");
 		Reporter.setTestRunnerOutput("Sample test runner output message");
 
-//		driver.close();
-//		driver.quit();
+		driver.close();
+		driver.quit();
 	}
 }
