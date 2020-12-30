@@ -22,7 +22,7 @@ formatter.match({
   "location": "UITestSteps.i_want_to_retrieve_terminal_details_UI()"
 });
 formatter.result({
-  "duration": 14785004000,
+  "duration": 2393842800,
   "status": "passed"
 });
 formatter.scenario({
@@ -62,8 +62,7 @@ formatter.match({
   "location": "UITestSteps.verify_all_coressponding_device_id_displayed_correctly_in_UI(String\u003e)"
 });
 formatter.result({
-  "duration": 15098815900,
-  "error_message": "java.util.NoSuchElementException: No value present\r\n\tat java.util.Optional.get(Optional.java:135)\r\n\tat com.BDD.ui.pages.TerminalPage.getSubDevices(TerminalPage.java:84)\r\n\tat com.BDD.testSteps.UITestSteps.verify_all_coressponding_device_id_displayed_correctly_in_UI(UITestSteps.java:46)\r\n\tat ✽.Then verify all coressponding device id displayed correctly in UI(UI.feature:9)\r\n",
-  "status": "failed"
+  "duration": 331302000,
+  "status": "passed"
 });
 });

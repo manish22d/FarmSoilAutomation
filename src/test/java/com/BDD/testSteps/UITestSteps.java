@@ -33,7 +33,6 @@ public class UITestSteps extends Instance {
 //			dashboardPage = loginPage.performLogin(TestUtility.getConfigProperty("userName"),
 //					TestUtility.getConfigProperty("password"));
 //			terminal = dashboardPage.navigateToTerminal();
-
 		}
 	}
 
