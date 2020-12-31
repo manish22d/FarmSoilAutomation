@@ -22,7 +22,7 @@ formatter.match({
   "location": "UITestSteps.i_want_to_retrieve_terminal_details_UI()"
 });
 formatter.result({
-  "duration": 1988121700,
+  "duration": 7818848500,
   "status": "passed"
 });
 formatter.scenario({
@@ -62,7 +62,7 @@ formatter.match({
   "location": "UITestSteps.verify_all_coressponding_device_id_displayed_correctly_in_UI(String\u003e)"
 });
 formatter.result({
-  "duration": 283350400,
+  "duration": 360272800,
   "status": "passed"
 });
 });

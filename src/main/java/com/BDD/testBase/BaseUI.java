@@ -21,6 +21,7 @@ import com.BDD.Constant.Constants;
 import com.BDD.listerners.WebEventListener;
 import com.BDD.util.TestUtility;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.WebClient;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
@@ -72,8 +73,15 @@ public class BaseUI {
 			FirefoxOptions options = new FirefoxOptions();
 			options.setHeadless(true);
 			driver = new FirefoxDriver(options);
-		}else if (broswerName.equals("HTMLUnit")) {
-			driver = new HtmlUnitDriver(BrowserVersion.INTERNET_EXPLORER);
+		} else if (broswerName.equals("HTMLUnit")) {
+			driver = new HtmlUnitDriver(BrowserVersion.INTERNET_EXPLORER, true) {
+				@Override
+				protected WebClient newWebClient(BrowserVersion version) {
+					WebClient webClient = super.newWebClient(version);
+					webClient.getOptions().setThrowExceptionOnScriptError(false);
+					return webClient;
+				}
+			};
 		} else {
 			System.out.println("Path of Driver Executable is not Set for any Browser");
 		}
