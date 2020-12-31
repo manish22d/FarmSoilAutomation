@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -78,7 +77,7 @@ public class TerminalPage extends BaseUI {
 		WebElement subDeviceEle = deviceList.stream()
 				.filter(device -> device.findElement(By.xpath("./tr[1]/td[1]")).getText().contains(deviceId))
 				.findFirst().get();
-//		subDeviceEle.click();
+		subDeviceEle.click();
 		subDeviceEle.findElements(By.xpath(".//table/tbody/tr/td[1]")).stream()
 				.forEach(subDevice -> subDevices.add(subDevice.getText()));
 		return subDevices;
@@ -94,6 +93,36 @@ public class TerminalPage extends BaseUI {
 		return Integer.parseInt(deviceList.stream()
 				.filter(device -> device.findElement(By.xpath("./tr[1]/td[1]")).getText().contains(deviceId))
 				.findFirst().get().findElement(By.xpath("./tr[1]/td[3]/span")).getText().split("/")[1]);
+	}
+	
+	/**
+	 * returns decription of given device id
+	 * 
+	 * @param deviceId
+	 * @param subDeviceId
+	 * @return
+	 */
+	public String getDeviceDesc(String deviceId) {
+		return deviceList.stream()
+				.filter(device -> device.findElement(By.xpath("./tr[1]/td[1]")).getText().contains(deviceId))
+				.findFirst().get().findElement(By.xpath("./tr[1]/td[4]")).getText();
+	}
+
+	/**
+	 * returns decription of given sub device / device
+	 * 
+	 * @param deviceId
+	 * @param subDeviceId
+	 * @return
+	 */
+	public String getSubdevicesDesc(String deviceId, String subDeviceId) {
+		WebElement subDeviceEle = deviceList.stream()
+				.filter(device -> device.findElement(By.xpath("./tr[1]/td[1]")).getText().contains(deviceId))
+				.findFirst().get();
+		subDeviceEle.findElement(By.xpath("./tr[1]/td[1]/span")).click();
+		return subDeviceEle.findElements(By.xpath(".//table/tbody/tr")).stream()
+				.filter(subDevice -> subDevice.findElement(By.xpath("./td[1]")).getText().contains(subDeviceId))
+				.findFirst().get().findElement(By.xpath("./td[3]")).getText();
 	}
 
 }

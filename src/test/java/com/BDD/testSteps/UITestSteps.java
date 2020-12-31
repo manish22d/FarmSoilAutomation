@@ -41,9 +41,19 @@ public class UITestSteps extends Instance {
 		terminal = new TerminalPage();
 		terminal.clickOnTerminal(terminalID.get(0));
 		System.out.println(terminal.getListOfDevices());
-		System.out.println(terminal.getSubDevices("Card Reader"));
-		System.out.println(terminal.getNumberOfSubDevices("BIN"));
-		System.out.println(terminal.getNumberOfSubDevices("Printer"));
+
+		System.out.println(terminal.getSubdevicesDesc("Card Reader", "Reader2"));
+		System.out.println(terminal.getDeviceDesc("Card Reader"));
+//		terminal.getListOfDevices().forEach(device -> {
+//			System.out.println(device + ":");
+//			System.out.println("number of sub devices -> " + terminal.getNumberOfSubDevices(device));
+//			System.out.println("sub devices : " + terminal.getSubDevices(device));
+//		});
+//		System.out.println(terminal.getSubDevices("Card Reader"));
+//		System.out.println("Printer -> " + terminal.getSubDevices("Printer"));
+//		System.out.println("Printer1 -> " + terminal.getSubDevices("Printer1"));
+//		System.out.println(terminal.getNumberOfSubDevices("BIN"));
+//		System.out.println(terminal.getNumberOfSubDevices("Printer"));
 	}
 
 }
