@@ -15,6 +15,9 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.BDD.Constant.Constants;
@@ -79,10 +82,19 @@ public class BaseUI {
 				protected WebClient newWebClient(BrowserVersion version) {
 					WebClient webClient = super.newWebClient(version);
 					webClient.getOptions().setThrowExceptionOnScriptError(false);
+					webClient.getCookieManager().setCookiesEnabled(true);
 					return webClient;
 				}
 			};
+		} else if (broswerName.equals("PhantomJS")) {
+			DesiredCapabilities caps = new DesiredCapabilities();
+			caps.setJavascriptEnabled(true);
+			caps.setCapability("takesScreenshot", true);
+			caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+					Constants.PHANTOM_JS_DRIVER_PATH);
+			driver = new PhantomJSDriver(caps);
 		} else {
+
 			System.out.println("Path of Driver Executable is not Set for any Browser");
 		}
 

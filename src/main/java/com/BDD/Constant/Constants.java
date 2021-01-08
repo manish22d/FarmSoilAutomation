@@ -23,6 +23,12 @@ public class Constants {
 	public static final String FIREFOX_DRIVER_PATH = System.getProperty("user.dir") + "/Drivers/geckodriver.exe";
 
 	/**
+	 * PhantomJS driver path
+	 */
+	public static final String PHANTOM_JS_DRIVER_PATH = System.getProperty("user.dir") + "/Drivers/phantomjs.exe";
+
+	
+	/**
 	 * Page load time out quantity
 	 */
 	public static final long PAGE_LOAD_TIMEOUT = 30;
